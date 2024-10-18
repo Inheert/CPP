@@ -6,16 +6,14 @@
 /*   By: Théo <theoclaereboudt@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 10:05:24 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/10/18 15:01:22 by Théo             ###   ########.fr       */
+/*   Updated: 2024/10/19 00:04:50 by Théo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
-# include <iostream>
-# include <iomanip>
-# include <string>
 # include "phonebook.h"
 
 class	PhoneBook {

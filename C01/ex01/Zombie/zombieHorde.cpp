@@ -1,23 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.h                                        :+:      :+:    :+:   */
+/*   zombieHorde.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Théo <theoclaereboudt@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/18 09:56:52 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/10/19 00:04:56 by Théo             ###   ########.fr       */
+/*   Created: 2024/10/19 00:38:47 by Théo              #+#    #+#             */
+/*   Updated: 2024/10/19 00:56:22 by Théo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_H
-# define PHONEBOOK_H
+#include "Zombie.h"
 
-# include <iostream>
-# include <iomanip>
-# include <string>
-# include <sstream>
-# include "../Contact/Contact.hpp"
-# include "../PhoneBook/PhoneBook.hpp"
+Zombie	*zombieHorde( int N, std::string name ) {
+	Zombie	*horde = new Zombie[N];
 
-#endif
+	for (int i = 0; i < N; i++) {
+		horde[i].SetName(name);
+	}
+	return (horde);
+}

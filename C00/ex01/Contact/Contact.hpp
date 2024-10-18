@@ -6,10 +6,11 @@
 /*   By: Théo <theoclaereboudt@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 09:25:13 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/10/18 13:43:49 by Théo             ###   ########.fr       */
+/*   Updated: 2024/10/18 23:59:09 by Théo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#pragma once
 #ifndef Contact_HPP
 # define Contact_HPP
 

@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.h                                        :+:      :+:    :+:   */
+/*   newZombie.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Théo <theoclaereboudt@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/18 09:56:52 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/10/19 00:04:56 by Théo             ###   ########.fr       */
+/*   Created: 2024/10/19 00:21:19 by Théo              #+#    #+#             */
+/*   Updated: 2024/10/19 00:24:07 by Théo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_H
-# define PHONEBOOK_H
+# include "Zombie.h"
 
-# include <iostream>
-# include <iomanip>
-# include <string>
-# include <sstream>
-# include "../Contact/Contact.hpp"
-# include "../PhoneBook/PhoneBook.hpp"
-
-#endif
+Zombie	*newZombie( std::string name ) {
+	Zombie *zombie = new Zombie(name);
+	return (zombie);
+}

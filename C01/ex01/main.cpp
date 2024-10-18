@@ -1,23 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.h                                        :+:      :+:    :+:   */
+/*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Théo <theoclaereboudt@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/18 09:56:52 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/10/19 00:04:56 by Théo             ###   ########.fr       */
+/*   Created: 2024/10/19 00:00:04 by Théo              #+#    #+#             */
+/*   Updated: 2024/10/19 00:57:09 by Théo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_H
-# define PHONEBOOK_H
+#include "Zombie.h"
 
-# include <iostream>
-# include <iomanip>
-# include <string>
-# include <sstream>
-# include "../Contact/Contact.hpp"
-# include "../PhoneBook/PhoneBook.hpp"
-
-#endif
+int	main(void) {
+	int		N = 5;
+	Zombie	*horde = zombieHorde(N, "Didier");
+	
+	for (int i = 0; i < N; i++) {
+		horde[i].Annouce();
+	}
+	delete []horde;
+	return (0);
+}

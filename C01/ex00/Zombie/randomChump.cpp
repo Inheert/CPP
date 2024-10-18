@@ -1,23 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   phonebook.h                                        :+:      :+:    :+:   */
+/*   randomChump.cpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Théo <theoclaereboudt@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/18 09:56:52 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/10/19 00:04:56 by Théo             ###   ########.fr       */
+/*   Created: 2024/10/19 00:21:35 by Théo              #+#    #+#             */
+/*   Updated: 2024/10/19 00:49:07 by Théo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHONEBOOK_H
-# define PHONEBOOK_H
+#include "Zombie.h"
 
-# include <iostream>
-# include <iomanip>
-# include <string>
-# include <sstream>
-# include "../Contact/Contact.hpp"
-# include "../PhoneBook/PhoneBook.hpp"
-
-#endif
+void	randomChump( std::string name ) {
+	Zombie zombie = Zombie(name);
+	zombie.Annouce();
+}
