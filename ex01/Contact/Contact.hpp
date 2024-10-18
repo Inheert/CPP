@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Théo <theoclaereboudt@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 09:25:13 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/10/18 10:25:47 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/10/18 13:43:49 by Théo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,15 +19,15 @@
 class	Contact {
 	public:
 		Contact(void);
-		std::string	GetFirstname();
+		std::string	GetFirstname(void);
 		void		SetFirstName(std::string);
-		std::string	GetLastname();
+		std::string	GetLastname(void);
 		void		SetLastName(std::string);
-		std::string	GetNickname();
+		std::string	GetNickname(void);
 		void		SetNickname(std::string);
-		std::string	GetPhoneNumber();
+		std::string	GetPhoneNumber(void);
 		void		SetPhoneNumber(std::string);
-		std::string	GetDarkestSecret();
+		std::string	GetDarkestSecret(void);
 		void		SetDarkestSecret(std::string);
 	private:
 		std::string	_firstName;

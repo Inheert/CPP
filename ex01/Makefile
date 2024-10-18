@@ -10,7 +10,8 @@ SRC_DIR = .
 BIN_DIR = ./bin
 
 SOURCES = main.cpp \
-			Contact/Contact.cpp
+			Contact/Contact.cpp \
+			PhoneBook/PhoneBook.cpp
 
 OBJECTS = $(addprefix $(BIN_DIR)/,$(SOURCES:.cpp=.o))
 
