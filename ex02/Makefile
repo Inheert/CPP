@@ -1,4 +1,4 @@
-NAME = megaphone
+NAME = tests
 
 CC = g++
 
@@ -9,7 +9,7 @@ INCLUDES = -I ./includes/
 SRC_DIR = .
 BIN_DIR = ./bin
 
-SOURCES = megaphone.cpp
+SOURCES = tests.cpp Account.cpp
 
 OBJECTS = $(addprefix $(BIN_DIR)/,$(SOURCES:.cpp=.o))
 
