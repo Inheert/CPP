@@ -5,28 +5,29 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Théo <theoclaereboudt@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/19 00:00:04 by Théo              #+#    #+#             */
-/*   Updated: 2024/10/19 12:00:22 by Théo             ###   ########.fr       */
+/*   Created: 2024/10/19 12:15:50 by Théo              #+#    #+#             */
+/*   Updated: 2024/10/19 15:42:06 by Théo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.h"
+#include "header.h"
 
-int	main(int argc, char **argv) {
-	Zombie	*horde;
-	int		N = 5;
+int	main( void ) {
+	{
+		Weapon	club = Weapon("crude spiked club");
 
-	if (argc > 1 && atoi(argv[1]) > 0)
-		N = atoi(argv[1]);
-	if (argc > 2)
-		horde = zombieHorde(N, argv[2]);
-	else
-		horde = zombieHorde(N, "Didier");
-
-	for (int i = 0; i < N; i++) {
-		horde[i].Annouce();
+		HumanA	bob("Bob", club);
+		bob.attack();
+		club.setType("Some other type of club");
+		bob.attack();
 	}
-
-	delete []horde;
-	return (0);
+	{	
+		Weapon club = Weapon("crude spiked club");
+		HumanB	jim("Jim");
+		jim.setWeapon(club);
+		jim.attack();
+		club.setType("Some other type of club");
+		jim.attack();
+	}
+	
 }

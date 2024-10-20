@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Weapon.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Théo <theoclaereboudt@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/19 00:00:04 by Théo              #+#    #+#             */
-/*   Updated: 2024/10/19 12:00:22 by Théo             ###   ########.fr       */
+/*   Created: 2024/10/19 13:39:15 by Théo              #+#    #+#             */
+/*   Updated: 2024/10/19 14:59:25 by Théo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.h"
+#pragma once
+#ifndef WEAPON_HPP
+# define WEAPON_HPP
 
-int	main(int argc, char **argv) {
-	Zombie	*horde;
-	int		N = 5;
+#include <iostream>
+#include <string>
 
-	if (argc > 1 && atoi(argv[1]) > 0)
-		N = atoi(argv[1]);
-	if (argc > 2)
-		horde = zombieHorde(N, argv[2]);
-	else
-		horde = zombieHorde(N, "Didier");
+class	Weapon {
+	
+	public:
+		Weapon( std::string weapon );
+		~Weapon( void );
+		
+		void				setType( std::string type );
+		const std::string	&getType( void );
 
-	for (int i = 0; i < N; i++) {
-		horde[i].Annouce();
-	}
+	private:
+		std::string	_type;
 
-	delete []horde;
-	return (0);
-}
+};
+
+#endif

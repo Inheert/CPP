@@ -1,32 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   header.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Théo <theoclaereboudt@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/19 00:00:04 by Théo              #+#    #+#             */
-/*   Updated: 2024/10/19 12:00:22 by Théo             ###   ########.fr       */
+/*   Created: 2024/10/19 13:37:44 by Théo              #+#    #+#             */
+/*   Updated: 2024/10/19 14:48:09 by Théo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.h"
+#ifndef HEADER_H
+# define HEADER_H
 
-int	main(int argc, char **argv) {
-	Zombie	*horde;
-	int		N = 5;
+#include <iostream>
+#include <string>
+#include "../Weapon/Weapon.hpp"
+#include "../HumanA/HumanA.hpp"
+#include "../HumanB/HumanB.hpp"
 
-	if (argc > 1 && atoi(argv[1]) > 0)
-		N = atoi(argv[1]);
-	if (argc > 2)
-		horde = zombieHorde(N, argv[2]);
-	else
-		horde = zombieHorde(N, "Didier");
-
-	for (int i = 0; i < N; i++) {
-		horde[i].Annouce();
-	}
-
-	delete []horde;
-	return (0);
-}
+#endif

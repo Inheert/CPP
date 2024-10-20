@@ -1,32 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Harl.hpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Théo <theoclaereboudt@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/19 00:00:04 by Théo              #+#    #+#             */
-/*   Updated: 2024/10/19 12:00:22 by Théo             ###   ########.fr       */
+/*   Created: 2024/10/20 14:38:21 by Théo              #+#    #+#             */
+/*   Updated: 2024/10/20 14:52:05 by Théo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.h"
+#pragma once
+#ifndef HARL_HPP
+# define HARL_HPP
 
-int	main(int argc, char **argv) {
-	Zombie	*horde;
-	int		N = 5;
+#include <iostream>
 
-	if (argc > 1 && atoi(argv[1]) > 0)
-		N = atoi(argv[1]);
-	if (argc > 2)
-		horde = zombieHorde(N, argv[2]);
-	else
-		horde = zombieHorde(N, "Didier");
+class Harl {
 
-	for (int i = 0; i < N; i++) {
-		horde[i].Annouce();
-	}
+	public:
+		Harl( void );
+		~Harl( void );
+		void	complain( std::string level );		
 
-	delete []horde;
-	return (0);
-}
+	private:
+		void	debug( void );
+		void	info( void );
+		void	warning( void );
+		void	error( void );
+
+};
+
+#endif

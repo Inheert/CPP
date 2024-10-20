@@ -5,28 +5,27 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: Théo <theoclaereboudt@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/19 00:00:04 by Théo              #+#    #+#             */
-/*   Updated: 2024/10/19 12:00:22 by Théo             ###   ########.fr       */
+/*   Created: 2024/10/19 12:03:22 by Théo              #+#    #+#             */
+/*   Updated: 2024/10/19 12:14:11 by Théo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.h"
+#include <iostream>
 
-int	main(int argc, char **argv) {
-	Zombie	*horde;
-	int		N = 5;
+int	main( void ) {
+	std::string	stringVar = "Hello World!";
 
-	if (argc > 1 && atoi(argv[1]) > 0)
-		N = atoi(argv[1]);
-	if (argc > 2)
-		horde = zombieHorde(N, argv[2]);
-	else
-		horde = zombieHorde(N, "Didier");
+	std::string	*stringPTR = &stringVar;
 
-	for (int i = 0; i < N; i++) {
-		horde[i].Annouce();
-	}
+	std::string &stringREF = stringVar;
+	
+	std::cout << "stringVar address: "<< &stringVar << "\n";
+	std::cout << "stringPTR address: "<< &stringPTR << "\n";
+	std::cout << "stringREF address: " << &stringREF << "\n\n";
 
-	delete []horde;
+	std::cout << "stringVar value: "<< stringVar << "\n";
+	std::cout << "stringPTR value: "<< stringPTR << "\n";
+	std::cout << "stringREF value:" << stringREF << "\n";
+
 	return (0);
 }

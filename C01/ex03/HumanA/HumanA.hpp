@@ -1,32 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Théo <theoclaereboudt@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/19 00:00:04 by Théo              #+#    #+#             */
-/*   Updated: 2024/10/19 12:00:22 by Théo             ###   ########.fr       */
+/*   Created: 2024/10/19 13:39:06 by Théo              #+#    #+#             */
+/*   Updated: 2024/10/19 15:11:08 by Théo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.h"
+#pragma once
+#ifndef HUMANA_HPP
+# define HUMANA_HPP
 
-int	main(int argc, char **argv) {
-	Zombie	*horde;
-	int		N = 5;
+#include <iostream>
+#include <string>
+#include "../Weapon/Weapon.hpp"
 
-	if (argc > 1 && atoi(argv[1]) > 0)
-		N = atoi(argv[1]);
-	if (argc > 2)
-		horde = zombieHorde(N, argv[2]);
-	else
-		horde = zombieHorde(N, "Didier");
 
-	for (int i = 0; i < N; i++) {
-		horde[i].Annouce();
-	}
+class HumanA {
+	
+	public:
+		HumanA( std:: string name, Weapon &weapon );
+		~HumanA( void );
+		void	attack( void );
 
-	delete []horde;
-	return (0);
-}
+	private:
+		std::string	_name;
+		Weapon		&_weapon;
+
+};
+
+#endif
