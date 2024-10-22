@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Théo <theoclaereboudt@gmail.com>           +#+  +:+       +#+        */
+/*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 14:01:38 by Théo              #+#    #+#             */
-/*   Updated: 2024/10/20 14:17:45 by Théo             ###   ########.fr       */
+/*   Updated: 2024/10/21 12:14:31 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ int	replace(char **argv, std::string str) {
 
 	file.open((std::string(argv[1]) + ".replace").c_str());
 	if (file.fail()) {
-		std::cout << "Error: a problem occur while using ofstream.\n";
+		std::cout << "Error: a problem occur while using ofstream." << std::endl;
 		return (1);
 	}
 	for (int i = 0; i < (int)str.size(); i++) {
@@ -41,12 +41,12 @@ int	main( int argc, char **argv ) {
 	char			c;
 
 	if ( argc != 4 ) {
-		std::cout << "This program only take 3 arguments\n.";
+		std::cout << "This program only take 3 arguments." << std::endl;
 		return (1);
 	}
 	file.open(argv[1]);
 	if (file.fail()) {
-		std::cout << "Error: " << argv[1] << " no such file or directory.\n";
+		std::cout << "Error: " << argv[1] << " no such file or directory." << std::endl;
 		return (1);
 	}
 	while (!file.eof() && file >> std::noskipws >> c)

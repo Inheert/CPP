@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Zombie.cpp                                         :+:      :+:    :+:   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/18 23:58:27 by Théo              #+#    #+#             */
-/*   Updated: 2024/10/21 12:14:31 by tclaereb         ###   ########.fr       */
+/*   Created: 2024/10/22 08:04:07 by tclaereb          #+#    #+#             */
+/*   Updated: 2024/10/22 08:25:34 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.hpp"
+#pragma once
+#ifndef FIXED_HPP
+# define FIXED_HPP
 
-Zombie::Zombie( std::string name ) {
-	this->_name = name;
-}
 
-Zombie::~Zombie( void ) {
-	std::cout << this->_name << " have been destroyed." << std::endl;
-}
+#include <iostream>
 
-void	Zombie::Annouce( void ) {
-	std::cout << this->_name << ": BraiiiiiiinnnzzzZ..." << "" << std::endl;
-}
+class	Fixed {
+
+	public:
+		Fixed( void );
+		Fixed( const Fixed &other );
+		Fixed &operator=( const Fixed &other );
+		~Fixed( void );
+
+		int		getRawBits( void ) const;
+		void	setRawBits( int const raw );
+
+	private:
+		int					_fixedValue;
+		static const int	_fractionalBits;
+
+};
+
+#endif

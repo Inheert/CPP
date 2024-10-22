@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   Weapon.cpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Théo <theoclaereboudt@gmail.com>           +#+  +:+       +#+        */
+/*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 13:39:13 by Théo              #+#    #+#             */
-/*   Updated: 2024/10/19 15:13:18 by Théo             ###   ########.fr       */
+/*   Updated: 2024/10/21 12:14:31 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 Weapon::Weapon( std::string weapon ) : _type(weapon) {}
 
 Weapon::~Weapon( void ) {
-	std::cout << "Weapon: " << this->_type << " have been destroyed.\n";
+	std::cout << "Weapon: " << this->_type << " have been destroyed." << std::endl;
 }
 
 void	Weapon::setType( std::string type ) {
