@@ -9,7 +9,7 @@ INCLUDES = -I ./includes/
 SRC_DIR = .
 BIN_DIR = ./bin
 
-SOURCES = main.cpp Megaphone/Megaphone.cpp
+SOURCES = megaphone.cpp
 
 OBJECTS = $(addprefix $(BIN_DIR)/,$(SOURCES:.cpp=.o))
 
