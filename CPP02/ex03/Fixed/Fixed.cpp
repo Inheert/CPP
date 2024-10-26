@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 08:04:10 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/10/24 10:14:13 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/10/26 13:11:44 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -131,7 +131,6 @@ Fixed	Fixed::operator*( const Fixed &other ) const {
 Fixed	Fixed::operator/( const Fixed &other ) const {
 	return (Fixed(this->toFloat() / other.toFloat()));
 }
-
 
 // OPERATORS OVERLOADING - LOGICAL
 

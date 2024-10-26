@@ -1,27 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Megaphone.cpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 08:03:21 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/10/26 13:52:56 by tclaereb         ###   ########.fr       */
+/*   Created: 2024/10/26 14:27:55 by tclaereb          #+#    #+#             */
+/*   Updated: 2024/10/26 14:28:29 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Point/Point.hpp"
-#include "iostream"
+#include "Megaphone.hpp"
 
-bool	bsp(Point const a, Point const b, Point const c) {
-	
-}
-
-int	main( void ) {
-	Point	a;
-	Point	b(15.4f, 15.3f);
-	Point	c = Point(3.4f, 4.3f);
-	b = c;
-	std::cout << b.getX();
-	return 0;
+Megaphone::Megaphone(int argc, char **argv)
+{
+	if (argc == 1)
+	{
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
+		return ;
+	}
+	for (int i = 1; i < argc; i++) {
+		for (int j = 0; argv[i][j]; j++)
+			std::cout << static_cast<unsigned char>(toupper((argv[i][j])));
+	}
+	std::cout << std::endl;
 }

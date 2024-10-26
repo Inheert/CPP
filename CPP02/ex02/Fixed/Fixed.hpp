@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 08:04:07 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/10/23 09:02:52 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/10/24 07:23:04 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,11 @@ class	Fixed {
 		void	setRawBits( int const raw );
 		float	toFloat( void ) const;
 		int		toInt( void ) const;
+
+		static Fixed		&min( Fixed &lhs, Fixed &rhs );
+		static const Fixed	&min( const Fixed lhs, const Fixed rhs );
+		static Fixed		&max( Fixed &lhs, Fixed &rhs );
+		static const Fixed	&max( const Fixed &lhs, const Fixed &rhs );
 
 		Fixed	&operator=( const Fixed &other );
 		Fixed	operator+( const Fixed &other ) const;
