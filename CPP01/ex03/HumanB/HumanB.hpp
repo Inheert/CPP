@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   HumanB.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Théo <theoclaereboudt@gmail.com>           +#+  +:+       +#+        */
+/*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 13:39:09 by Théo              #+#    #+#             */
-/*   Updated: 2024/10/19 15:11:46 by Théo             ###   ########.fr       */
+/*   Updated: 2024/10/27 08:27:29 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#ifndef HUMANB_HPP
-# define HUMANB_HPP
 
 #include <iostream>
 #include <string>
@@ -32,5 +30,3 @@ class	HumanB {
 		Weapon		*_weapon;
 
 };
-
-#endif

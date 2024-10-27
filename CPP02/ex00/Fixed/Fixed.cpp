@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 08:04:10 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/10/22 08:37:46 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/10/27 08:37:25 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Fixed::Fixed( const Fixed &other ) {
 }
 
 Fixed::~Fixed( void ) {
-	std::cout << "Destructor called\n";
+	std::cout << "Destructor called" << std::endl;
 }
 
 Fixed&	Fixed::operator=( const Fixed &other ) {

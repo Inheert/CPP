@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 10:05:21 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/10/21 12:14:31 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/10/27 08:37:10 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ void	PhoneBook::Add(Contact newContact) {
 void	PhoneBook::Display(void) {
 	std::string	value;
 
-	std::cout << "\n     Index|First name| Last name|  Nickname|     Phone|    Secret" << std::endl;
+	std::cout << std::endl << "     Index|First name| Last name|  Nickname|     Phone|    Secret" << std::endl;
 	std::cout << "-----------------------------------------------------------------" << std::endl;
 	for (int i = 0; i < 8; i++) {
 		if (this->contacts[i].GetFirstname() == "")
@@ -63,17 +63,17 @@ void	PhoneBook::Display(void) {
 
 void	PhoneBook::Search(int index) {
 	if (index < 0 || index > 7 || this->contacts[index].GetFirstname().length() == 0) {
-		std::cout << "\n\033[0;31mNo contact found with the index: '";
+		std::cout << std::endl << "\033[0;31mNo contact found with the index: '";
 		std::cout << index;
-		std::cout << "', the contact may not exist or the index is not in a valid range (0 - 7).\033[0m\n" << std::endl;
+		std::cout << "', the contact may not exist or the index is not in a valid range (0 - 7).\033[0m" << std::endl << std::endl;
 		return ;
 	}
-	std::cout << "\nContact details (index: " << index << ")" << std::endl;
+	std::cout << std::endl << "Contact details (index: " << index << ")" << std::endl;
 	std::cout << "First name: " + this->contacts[index].GetFirstname() + "" << std::endl;
 	std::cout << "Last name: " + this->contacts[index].GetLastname() + "" << std::endl;
 	std::cout << "Nickname: " + this->contacts[index].GetNickname() + "" << std::endl;
 	std::cout << "Phone number: " + this->contacts[index].GetPhoneNumber() + "" << std::endl;
-	std::cout << "Darkest secret: " + this->contacts[index].GetDarkestSecret() + "\n" << std::endl;
+	std::cout << "Darkest secret: " + this->contacts[index].GetDarkestSecret() << std::endl << std::endl;
 }
 
 

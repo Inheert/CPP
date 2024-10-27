@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 09:14:37 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/10/21 12:14:31 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/10/27 08:36:26 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	GetForm(PhoneBook *phoneBook) {
 	Contact		contact;
 	std::string	value;
 
-	std::cout << "\nYou are going to create a new contact, please follow the next instructions:" << std::endl;
+	std::cout << std::endl << "You are going to create a new contact, please follow the next instructions:" << std::endl;
 	std::cout << "First name: ";
 	std::cin >> value;
 	if (std::cin.eof()) {
@@ -74,14 +74,14 @@ int	GetSearch(PhoneBook *phoneBook) {
 	int			index;
 
 	phoneBook->Display();
-	std::cout << "\nPlease enter the index of the contact whose details you wish to view: ";
+	std::cout << std::endl << "Please enter the index of the contact whose details you wish to view: ";
 	std::cin >> value;
 	if (std::cin.eof()) {
 		std::cout << "" << std::endl;
 		return (1);
 	}
 	if (!isNum(value)) {
-		std::cout << "\n\033[0;31mError, only number is accepted.\033[0m\n" << std::endl;
+		std::cout << std::endl << "\033[0;31mError, only number is accepted.\033[0m" << std::endl << std::endl;
 		return (0);
 	}
 	std::stringstream ss(value);
@@ -111,7 +111,7 @@ int	main(void) {
 		else if (value.compare("EXIT") == 0)
 			return (0);
 		else
-			std::cout << "\033[0;31m Please enter a valid command.\033[0m\n" << std::endl;
+			std::cout << "\033[0;31m Please enter a valid command.\033[0m" << std::endl << std::endl;
 	}
 	return (0);
 }

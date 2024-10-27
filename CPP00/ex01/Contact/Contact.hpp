@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   Contact.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Théo <theoclaereboudt@gmail.com>           +#+  +:+       +#+        */
+/*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 09:25:13 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/10/18 23:59:09 by Théo             ###   ########.fr       */
+/*   Updated: 2024/10/26 15:36:25 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#ifndef Contact_HPP
-# define Contact_HPP
 
 #include <iostream>
 #include <string>
@@ -37,5 +35,3 @@ class	Contact {
 		std::string	_phoneNumber;
 		std::string	_darkestSecret;
 };
-
-#endif

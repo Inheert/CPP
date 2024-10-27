@@ -6,13 +6,11 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 14:38:21 by Théo              #+#    #+#             */
-/*   Updated: 2024/10/22 06:20:34 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/10/27 08:34:27 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#ifndef HARL_HPP
-# define HARL_HPP
 
 #include <iostream>
 #include <string>
@@ -32,5 +30,3 @@ class HarlFilter {
 		void	_display_complain( int level );
 
 };
-
-#endif

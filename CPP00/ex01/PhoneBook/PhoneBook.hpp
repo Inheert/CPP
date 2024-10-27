@@ -3,18 +3,20 @@
 /*                                                        :::      ::::::::   */
 /*   PhoneBook.hpp                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Théo <theoclaereboudt@gmail.com>           +#+  +:+       +#+        */
+/*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 10:05:24 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/10/19 00:04:50 by Théo             ###   ########.fr       */
+/*   Updated: 2024/10/27 08:38:37 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#ifndef PHONEBOOK_HPP
-# define PHONEBOOK_HPP
 
-# include "phonebook.h"
+#include <iostream>
+#include <iomanip>
+#include <string>
+#include <sstream>
+#include "../Contact/Contact.hpp"
 
 class	PhoneBook {
 	public:
@@ -26,5 +28,3 @@ class	PhoneBook {
 		Contact		contacts[8];
 		int			oldestContactIndex;
 };
-
-#endif

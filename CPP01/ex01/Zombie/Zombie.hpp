@@ -3,18 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   Zombie.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Théo <theoclaereboudt@gmail.com>           +#+  +:+       +#+        */
+/*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 23:58:25 by Théo              #+#    #+#             */
-/*   Updated: 2024/10/19 11:52:33 by Théo             ###   ########.fr       */
+/*   Updated: 2024/10/27 08:24:57 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#ifndef ZOMBIE_HPP
-# define ZOMBIE_HPP
 
-# include "Zombie.h"
+# include <iostream>
 
 class	Zombie {
 	public:
@@ -27,6 +25,3 @@ class	Zombie {
 	private:
 		std::string	_name;
 };
-
-
-#endif

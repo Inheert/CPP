@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 08:04:10 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/10/22 12:47:01 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/10/27 08:37:32 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ Fixed::Fixed( const float value ) : _fixedValue(roundf(value * (1 << _fractional
 }
 
 Fixed::~Fixed( void ) {
-	std::cout << "Destructor called\n";
+	std::cout << "Destructor called" << std::endl;
 }
 
 int	Fixed::getRawBits( void ) const {

@@ -3,16 +3,14 @@
 /*                                                        :::      ::::::::   */
 /*   HumanA.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Théo <theoclaereboudt@gmail.com>           +#+  +:+       +#+        */
+/*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/19 13:39:06 by Théo              #+#    #+#             */
-/*   Updated: 2024/10/19 15:11:08 by Théo             ###   ########.fr       */
+/*   Updated: 2024/10/27 08:27:24 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#ifndef HUMANA_HPP
-# define HUMANA_HPP
 
 #include <iostream>
 #include <string>
@@ -20,7 +18,7 @@
 
 
 class HumanA {
-	
+
 	public:
 		HumanA( std:: string name, Weapon &weapon );
 		~HumanA( void );
@@ -31,5 +29,3 @@ class HumanA {
 		Weapon		&_weapon;
 
 };
-
-#endif
