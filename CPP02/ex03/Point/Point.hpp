@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 07:38:38 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/10/24 10:41:42 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/10/30 08:57:08 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,7 @@ class Point {
 		const Fixed &getY( void ) const;
 
 		Point	&operator=( const Point &other );
+		Fixed	operator-( const Point &other ) const;
 };
 
 #endif

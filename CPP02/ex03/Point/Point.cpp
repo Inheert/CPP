@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 07:38:33 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/10/26 12:17:35 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/10/30 14:18:57 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,5 +31,16 @@ const Fixed	&Point::getY( void ) const {
 Point	&Point::operator=( const Point &other ) {
 	return (void(other), *this);
 };
+
+Fixed	Point::operator-( const Point &other ) const {
+	Fixed maxX = this->getX() < other.getX() ? other.getX() : this->getX();
+	Fixed minX = this->getX() < other.getX() ? this->getX() : other.getX();
+
+	Fixed maxY = this->getY() < other.getY() ? other.getY() : this->getY();
+	Fixed minY = this->getY() < other.getY() ? this->getY() : other.getY();
+
+	Fixed	temp((maxX + maxY) - (minX + minY));
+	return (temp);
+}
 
 
