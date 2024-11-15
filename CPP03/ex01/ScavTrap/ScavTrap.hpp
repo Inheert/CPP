@@ -1,30 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.hpp                                         :+:      :+:    :+:   */
+/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/19 13:39:09 by Théo              #+#    #+#             */
-/*   Updated: 2024/11/15 06:37:23 by tclaereb         ###   ########.fr       */
+/*   Created: 2024/11/14 06:46:38 by tclaereb          #+#    #+#             */
+/*   Updated: 2024/11/14 09:25:20 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <iostream>
-#include <string>
-#include "../Weapon/Weapon.hpp"
+#include "../ClapTrap/ClapTrap.hpp"
 
-class	HumanB {
+class ScavTrap : public virtual ClapTrap
+{
 	private:
-		std::string	_name;
-		Weapon		*_weapon;
+		bool	_is_guarding_gate;
 
 	public:
-		HumanB( std::string name );
-		~HumanB( void );
+		ScavTrap( void );
+		ScavTrap( std::string name );
+		ScavTrap( const ScavTrap &other );
+		virtual	~ScavTrap( void );
 
-		void	attack( void );
-		void	setWeapon( Weapon &weapon );
+		ScavTrap &operator=( const ScavTrap &other );
+
+		bool	getGuardingMode();
+
+		void	attack( const std::string &target );
+		void	guardGate( void );
 };

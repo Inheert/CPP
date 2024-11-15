@@ -5,27 +5,37 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/19 12:03:22 by Théo              #+#    #+#             */
-/*   Updated: 2024/11/15 06:31:41 by tclaereb         ###   ########.fr       */
+/*   Created: 2024/11/06 08:42:29 by tclaereb          #+#    #+#             */
+/*   Updated: 2024/11/14 09:41:34 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "FragTrap/FragTrap.hpp"
 #include <iostream>
 
 int	main( void ) {
-	std::string	stringVar = "Hello World!";
-
-	std::string	*stringPTR = &stringVar;
-
-	std::string &stringREF = stringVar;
-
-	std::cout << "stringVar address: "<< &stringVar << "" << std::endl;
-	std::cout << "stringPTR address: "<< &stringPTR << "" << std::endl;
-	std::cout << "stringREF address: " << &stringREF << std::endl << std::endl;
-
-	std::cout << "stringVar value: "<< stringVar << "" << std::endl;
-	std::cout << "stringPTR value: "<< stringPTR << "" << std::endl;
-	std::cout << "stringREF value: " << stringREF << "" << std::endl;
-
+	FragTrap b;
+	FragTrap a("aTrap");
+	a.highFivesGuys();
+	a.attack(b.getName());
+	b.takeDamage(a.getDamage());
+	a.attack(b.getName());
+	b.takeDamage(a.getDamage());
+	a.attack(b.getName());
+	b.takeDamage(a.getDamage());
+	a.attack(b.getName());
+	b.takeDamage(a.getDamage());
+	a.attack(b.getName());
+	b = FragTrap("NewOne");
+	b.takeDamage(a.getDamage());
+	a.attack(b.getName());
+	b.takeDamage(a.getDamage());
+	a.attack(b.getName());
+	b.takeDamage(a.getDamage());
+	a.attack(b.getName());
+	b.takeDamage(a.getDamage());
+	//ScavTrap a = ScavTrap();
+	//a = b;
+	//ClapTrap b = ScavTrap();
 	return (0);
 }

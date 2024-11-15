@@ -1,32 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   FragTrap.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/19 00:00:04 by Théo              #+#    #+#             */
-/*   Updated: 2024/11/15 06:28:14 by tclaereb         ###   ########.fr       */
+/*   Created: 2024/11/14 06:46:38 by tclaereb          #+#    #+#             */
+/*   Updated: 2024/11/14 09:41:08 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Zombie.h"
+#pragma once
 
-int	main(int argc, char **argv) {
-	Zombie	*horde;
-	int		N = 5;
+#include "../ClapTrap/ClapTrap.hpp"
 
-	if (argc > 1 && std::atoi(argv[1]) > 0)
-		N = atoi(argv[1]);
-	if (argc > 2)
-		horde = zombieHorde(N, argv[2]);
-	else
-		horde = zombieHorde(N, "Didier");
+class FragTrap : public virtual ClapTrap
+{
+	private:
 
-	for (int i = 0; i < N; i++) {
-		horde[i].Annouce();
-	}
+	public:
+		FragTrap( void );
+		FragTrap( std::string name );
+		FragTrap( const FragTrap &other );
+		virtual	~FragTrap( void );
 
-	delete []horde;
-	return (0);
-}
+		FragTrap &operator=( const FragTrap &other );
+
+		void	highFivesGuys( void );
+};

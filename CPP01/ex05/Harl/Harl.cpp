@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 14:40:06 by Théo              #+#    #+#             */
-/*   Updated: 2024/10/21 12:14:31 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/11/15 06:49:40 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,10 @@ void	Harl::complain( std::string level ) {
 	for (int i = 0; i < 4; i++) {
 		if (levels[i] == level) {
 			(this->*ptr_complain[i])();
-			break ;
+			return ;
 		}
 	}
+	std::cout << ">:(" << std::endl;
 }
 
 void	Harl::debug( void ) {

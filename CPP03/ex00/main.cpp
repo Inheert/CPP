@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 08:42:29 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/11/06 10:36:11 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/11/14 06:31:12 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,6 @@ int	main( void ) {
 	b.takeDamage(a.getDamage());
 	a.attack(b.getName());
 	b.takeDamage(a.getDamage());
-	a.attack(b.getName());
-	a.attack(b.getName());
-	a.attack(b.getName());
-	a.attack(b.getName());
-	a.attack(b.getName());
-	a.attack(b.getName());
-	a.attack(b.getName());
 	a.attack(b.getName());
 	a.attack(b.getName());
 	a.attack(b.getName());

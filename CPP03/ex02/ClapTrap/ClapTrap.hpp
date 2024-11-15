@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 08:42:27 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/11/14 06:43:27 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/11/14 09:15:44 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,15 @@
 #include <iostream>
 #include <string>
 
+#define DEFAULT "\033[0m"
+#define RED "\033[1;41m"
+#define GREEN "\033[1;42m"
+#define YELLOW "\033[1;43m"
+
 class ClapTrap
 {
-	private:
+	protected:
+		std::string		_className;
 		std::string		_name;
 		unsigned int	_health;
 		unsigned int	_energy;
@@ -27,7 +33,7 @@ class ClapTrap
 		ClapTrap( void );
 		ClapTrap( std::string name );
 		ClapTrap( const ClapTrap &other );
-		~ClapTrap( void );
+		virtual	~ClapTrap( void );
 
 		void		attack( const std::string &target );
 		void		takeDamage( unsigned int amount );

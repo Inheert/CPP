@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 14:38:21 by Théo              #+#    #+#             */
-/*   Updated: 2024/10/27 08:34:27 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/11/15 06:54:01 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,13 +20,13 @@ class HarlFilter {
 	public:
 		HarlFilter( void );
 		~HarlFilter( void );
-		void	complain( std::string level );
+		void	complain( std::string level ) const;
 
 	private:
-		void	debug( void );
-		void	info( void );
-		void	warning( void );
-		void	error( void );
-		void	_display_complain( int level );
+		void	debug( void ) const;
+		void	info( void ) const;
+		void	warning( void ) const;
+		void	error( void ) const;
+		void	_display_complain( int level ) const;
 
 };

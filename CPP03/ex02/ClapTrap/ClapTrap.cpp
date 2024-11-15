@@ -6,37 +6,40 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 08:42:31 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/11/14 06:43:37 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/11/14 09:18:05 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ClapTrap.hpp"
 
-ClapTrap::ClapTrap( void ) : _name("defaultName"), _health(10), _energy(10), _damage(0) {
-	std::cout << "Default constructor called." << std::endl;
+ClapTrap::ClapTrap( void ) : _className("ClapTrap"), _name("defaultName"), _health(10), _energy(10), _damage(0) {
+	std::cout << GREEN << this->_className << " default constructor called." << DEFAULT << std::endl;
 }
 
-ClapTrap::ClapTrap( std::string name ) : _name(name), _health(10), _energy(10), _damage(0) {
-	std::cout << "Constructor called: " << name << "." << std::endl;
+ClapTrap::ClapTrap( std::string name ) : _className("ClapTrap"), _name(name), _health(10), _energy(10), _damage(0) {
+	std::cout << GREEN <<  this->_className << " constructor called: " << name << "." << DEFAULT << std::endl;
 }
 
 ClapTrap::ClapTrap( const ClapTrap &other ) {
 	*this = other;
 
-	std::cout << "Copy constructor called: " << this->_name << "." << std::endl;
+	std::cout << GREEN <<  this->_className << " copy constructor called: " << this->_name << "." << DEFAULT << std::endl;
 }
 
 ClapTrap::~ClapTrap( void ) {
-	std::cout << "Destructor called: " << this->_name << "." << std::endl;
+	std::cout << RED << "ClapTrap destructor called: " << this->_name << "." << DEFAULT << std::endl;
 }
 
 ClapTrap	&ClapTrap::operator=( const ClapTrap &other ) {
 	if (this == &other)
 		return (*this);
+
 	this->_name = other._name;
 	this->_health = other._health;
 	this->_energy = other._energy;
 	this->_damage = other._damage;
+
+	std::cout << YELLOW << this->_className << " operator = called." << DEFAULT << std::endl;
 	return (*this);
 }
 
@@ -58,9 +61,9 @@ unsigned int	ClapTrap::getEnergy( void ) const {
 
 void	ClapTrap::cantDoAnyAction( std::string action ) const {
 	if (!this->_health)
-		std::cout << "ClapTrap " << this->_name << " can't " << action << " because he is died." << std::endl;
+		std::cout << this->_className << this->_name << " can't " << action << " because he is died." << std::endl;
 	if (!this->_energy)
-		std::cout << "ClapTrap " << this->_name << " can't " << action << " because he doesn't have enough energy." << std::endl;
+		std::cout << this->_className << this->_name << " can't " << action << " because he doesn't have enough energy." << std::endl;
 }
 
 void	ClapTrap::attack( const std::string &target ) {
@@ -69,7 +72,7 @@ void	ClapTrap::attack( const std::string &target ) {
 
 	this->_energy--;
 
-	std::cout << "ClapTrap " << this->_name << " attacks " << target << ", causing " << this->_damage << " points of damage!" << std::endl;
+	std::cout << this->_className << this->_name << " attacks " << target << ", causing " << this->_damage << " points of damage!" << std::endl;
 }
 
 void	ClapTrap::takeDamage( unsigned int amount ) {
@@ -81,7 +84,7 @@ void	ClapTrap::takeDamage( unsigned int amount ) {
 	else
 		this->_health -= amount;
 
-	std::cout << "ClapTrap " << this->_name << " took " << amount << " damage points!" << std::endl;
+	std::cout << this->_className << this->_name << " took " << amount << " damage points!" << std::endl;
 }
 
 void	ClapTrap::beRepaired( unsigned int amount ) {
@@ -91,5 +94,5 @@ void	ClapTrap::beRepaired( unsigned int amount ) {
 	this->_health += amount;
 	this->_energy--;
 
-	std::cout << "ClapTrap " << this->_name << " recovered " << amount << " hit points!" << std::endl;
+	std::cout << this->_className << this->_name << " recovered " << amount << " hit points!" << std::endl;
 }
