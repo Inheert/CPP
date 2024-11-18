@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   compiler.cpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
+/*   By: Théo <theoclaereboudt@gmail.com>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 06:17:02 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/11/18 11:25:22 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/11/18 13:22:35 by Théo             ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,11 +46,7 @@ int main(int argc, char **argv) {
 	int	totalFiles = std::atoi(argv[1]);
 	int	count = std::atoi(argv[2]);
 
-	for (int i = 1; i <= count; ++i) {
-		printProgress(i, totalFiles);
-		sleepMilliseconds(200);
-	}
-	std::cout << argv[3] << argv[4];
+	printProgress(count, totalFiles);
 	std::cout << std::endl;
 	return (0);
 }

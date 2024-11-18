@@ -24,7 +24,7 @@ $(NAME): $(OBJECTS)
 
 $(BIN_DIR)/%.o: $(SRC_DIR)/%.cpp
 	@mkdir -p $(dir $@)
-	@bash test.sh $(SOURCE_COUNT) $(COUNT) $< $@
+	@bash make_compiler.sh $(SOURCE_COUNT) $(COUNT) $< $@
 	$(eval COUNT := $(shell echo $$(($(COUNT) + 1))))
 	@$(CC) $(CFLAGS) -c $< -o $@ $(INCLUDES)
 
