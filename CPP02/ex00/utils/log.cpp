@@ -1,37 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   log.cpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/10/22 08:04:07 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/10/27 10:20:00 by tclaereb         ###   ########.fr       */
+/*   Created: 2024/11/18 05:52:35 by tclaereb          #+#    #+#             */
+/*   Updated: 2024/11/18 06:09:15 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
-#ifndef FIXED_HPP
-# define FIXED_HPP
-
-
 #include <iostream>
+#include <string>
 
-class	Fixed {
-
-	public:
-		Fixed( void );
-		Fixed( const Fixed &other );
-		Fixed &operator=( const Fixed &other );
-		~Fixed( void );
-
-		int		getRawBits( void ) const;
-		void	setRawBits( int const raw );
-
-	private:
-		int					_fixedValue;
-		static const int	_fractionalBits;
-
+std::string colors[15] = {
+    "\033[0m", // DEFAULT
+    "\033[1;31m", // RED
+    "\033[1;32m", // GREEN
+    "\033[1;33m", // YELLOW
 };
 
-#endif
+void	log(int level, std::ostream &os, const std::string &message) {
+	os << colors[level] << message << colors[0] << std::endl;
+}

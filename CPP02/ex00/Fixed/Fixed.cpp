@@ -6,29 +6,29 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 08:04:10 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/10/27 08:37:25 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/11/18 06:08:18 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "Fixed.class.hpp"
 
 const int Fixed::_fractionalBits = 8;
 
 Fixed::Fixed( void ) : _fixedValue(0) {
-	std::cout << "Default constructor called" << std::endl;
+	log(2, std::cout, "Default constructor called");
 }
 
 Fixed::Fixed( const Fixed &other ) {
-	std::cout << "Copy constructor called" << std::endl;
+	log(2, std::cout, "Copy constructor called");
 	*this = other;
 }
 
 Fixed::~Fixed( void ) {
-	std::cout << "Destructor called" << std::endl;
+	log(1, std::cout, "Destructor called");
 }
 
 Fixed&	Fixed::operator=( const Fixed &other ) {
-	std::cout << "Copy assignement operator called" << std::endl;
+	log(3, std::cout, "Copy assignement operator called");
 	if (this != &other) {
 		this->_fixedValue = other.getRawBits();
 	}
@@ -36,11 +36,11 @@ Fixed&	Fixed::operator=( const Fixed &other ) {
 }
 
 int	Fixed::getRawBits( void ) const {
-	std::cout << "GetRawBits member function called" << std::endl;
+	log(0, std::cout, "GetRawBits member function called");
 	return (this->_fixedValue);
 }
 
-void	Fixed::setRawBits( int const raw) {
-	std::cout << "SetRawBits member function called" << std::endl;
+void	Fixed::setRawBits( int const raw ) {
+	log(0, std::cout, "SetRawBits member function called");
 	this->_fixedValue = raw;
 }
