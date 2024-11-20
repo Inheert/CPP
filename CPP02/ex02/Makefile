@@ -9,7 +9,7 @@ INCLUDES = -I ./includes/
 SRC_DIR = .
 BIN_DIR = ./bin
 
-SOURCES = main.cpp Fixed/Fixed.cpp
+SOURCES = main.cpp Fixed/Fixed.cpp utils/log.cpp
 
 OBJECTS = $(addprefix $(BIN_DIR)/,$(SOURCES:.cpp=.o))
 

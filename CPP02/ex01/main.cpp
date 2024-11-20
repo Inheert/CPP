@@ -6,28 +6,31 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 08:03:21 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/10/22 12:36:50 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/11/20 09:45:29 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed/Fixed.hpp"
-#include "iostream"
-
+#include <iostream>
+#include <sstream>
 
 int	main( void ) {
-	Fixed a;
-	Fixed const b( 10 );
-	Fixed const c( 42.42f );
-	Fixed const d( b );
-	a = Fixed( 1234.4321f );
-	std::cout << "a is " << a << std::endl;
-	std::cout << "b is " << b << std::endl;
-	std::cout << "c is " << c << std::endl;
-	std::cout << "d is " << d << std::endl;
+	Fixed 				a;
+	Fixed 				const b( 10 );
+	Fixed				const c( 42.42f );
+	Fixed				const d( b );
+	std::ostringstream	oss;
 
-	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+	a = Fixed( 1234.4321f );
+	// Add to stream   |         Display Log         | Clear the stream
+	oss << "a is " << a; log(std::cout, oss.str(), 0); oss.str("");
+	oss << "b is " << b; log(std::cout, oss.str(), 0); oss.str("");
+	oss << "c is " << c; log(std::cout, oss.str(), 0); oss.str("");
+	oss << "d is " << d; log(std::cout, oss.str(), 0); oss.str("");
+
+	oss << "a is " << a.toInt() << " as integer"; log(std::cout, oss.str(), 0); oss.str("");
+	oss << "b is " << b.toInt() << " as integer"; log(std::cout, oss.str(), 0); oss.str("");
+	oss << "c is " << c.toInt() << " as integer"; log(std::cout, oss.str(), 0); oss.str("");
+	oss << "d is " << d.toInt() << " as integer"; log(std::cout, oss.str(), 0); oss.str("");
 	return (0);
 }

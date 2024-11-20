@@ -6,23 +6,26 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 08:03:21 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/10/30 08:41:17 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/11/20 10:36:27 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed/Fixed.hpp"
-#include "iostream"
-
+#include <iostream>
+#include <sstream>
 
 int	main( void ) {
-	Fixed a;
-	Fixed const b( Fixed( 5.05f ) * Fixed( 2 ) );
-	std::cout << "1.  " << a << std::endl;
-	std::cout << "2.  " << ++a << std::endl;
-	std::cout << "3.  " << a << std::endl;
-	std::cout << "4.  " << a++ << std::endl;
-	std::cout << "5.  " << a << std::endl;
-	std::cout << "6.  "<< b << std::endl;
-	std::cout << Fixed::max( a, b ) << std::endl;
-	return 0;
+	Fixed				a;
+	Fixed const			b( Fixed( 5.05f ) * Fixed( 2 ) );
+	std::ostringstream	oss;
+
+	oss << a; log(std::cout, oss.str(), 0); oss.str("");
+	oss << ++a; log(std::cout, oss.str(), 0); oss.str("");
+	oss << a; log(std::cout, oss.str(), 0); oss.str("");
+	oss << a++; log(std::cout, oss.str(), 0); oss.str("");
+	oss << a; log(std::cout, oss.str(), 0); oss.str("");
+	oss << b; log(std::cout, oss.str(), 0); oss.str("");
+	oss << Fixed::max(a, b); log(std::cout, oss.str(), 0); oss.str("");
+
+	return (0);
 }

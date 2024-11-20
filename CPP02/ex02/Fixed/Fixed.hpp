@@ -6,16 +6,22 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 08:04:07 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/10/24 07:23:04 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/11/20 09:47:11 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#ifndef FIXED_HPP
-# define FIXED_HPP
 
 #include <iostream>
 #include <cmath>
+
+#ifdef _WIN32
+	#define LEND "\r\n"
+#else
+	#define LEND "\n"
+#endif
+
+void	log(std::ostream &os, const std::string &message, ...);
 
 class	Fixed {
 
@@ -60,4 +66,3 @@ bool			operator<=( const Fixed &lhs, const Fixed &rhs );
 bool			operator==( const Fixed &lhs, const Fixed &rhs );
 bool			operator!=( const Fixed &lhs, const Fixed &rhs );
 
-#endif

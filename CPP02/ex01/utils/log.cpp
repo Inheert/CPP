@@ -5,8 +5,8 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/18 05:52:35 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/11/20 08:31:18 by tclaereb         ###   ########.fr       */
+/*   Created: 2024/11/20 08:30:33 by tclaereb          #+#    #+#             */
+/*   Updated: 2024/11/20 09:38:10 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@
 	#define LEND "\n"
 #endif
 
-#define COLORS_LEN 4
+#define COLORS_LEN 15
 
 #include <cstdio>
 std::string colors[COLORS_LEN] = {

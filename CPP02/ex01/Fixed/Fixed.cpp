@@ -6,33 +6,50 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 08:04:10 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/10/27 08:37:32 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/11/20 09:40:27 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
+inline void log(std::ostream &os, const std::string &message, ...) {
+	os << "[LOG] - " << message << LEND;
+}
+
 const int Fixed::_fractionalBits = 8;
 
 Fixed::Fixed( void ) : _fixedValue(0) {
-	std::cout << "Default constructor called" << std::endl;
-}
-
-Fixed::Fixed( const Fixed &other ) {
-	std::cout << "Copy constructor called" << std::endl;
-	*this = other;
+	log(std::cout, "Default constructor called", 2, NULL);
 }
 
 Fixed::Fixed( const int value ) : _fixedValue(value << _fractionalBits) {
-	std::cout << "Int constructor called" << std::endl;
+	log(std::cout, "Int constructor called", 2, NULL);
 }
 
 Fixed::Fixed( const float value ) : _fixedValue(roundf(value * (1 << _fractionalBits))) {
-	std::cout << "Float constructor called" << std::endl;
+	log(std::cout, "Float constructor called", 2, NULL);
+}
+
+Fixed::Fixed( const Fixed &other ) {
+	log(std::cout, "Copy constructor called", 2, NULL);
+	*this = other;
 }
 
 Fixed::~Fixed( void ) {
-	std::cout << "Destructor called" << std::endl;
+	log(std::cout, "Destructor called", 2, NULL);
+}
+
+Fixed&	Fixed::operator=( const Fixed &other ) {
+	log(std::cout, "Copy assignement operator called", 3, NULL);
+	if (this != &other) {
+		this->_fixedValue = other.getRawBits();
+	}
+	return (*this);
+}
+
+std::ostream	&operator<<( std::ostream &os, Fixed const &fixed ) {
+	os << fixed.toFloat();
+	return (os);
 }
 
 int	Fixed::getRawBits( void ) const {
@@ -51,16 +68,4 @@ float	Fixed::toFloat( void ) const {
 	return float(this->_fixedValue) / (1 << this->_fractionalBits);
 }
 
-Fixed&	Fixed::operator=( const Fixed &other ) {
-	std::cout << "Copy assignement operator called" << std::endl;
-	if (this != &other) {
-		this->_fixedValue = other.getRawBits();
-	}
-	return (*this);
-}
-
-std::ostream	&operator<<( std::ostream &os, Fixed const &fixed ) {
-	os << fixed.toFloat();
-	return (os);
-}
 

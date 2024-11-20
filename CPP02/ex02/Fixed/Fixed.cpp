@@ -6,18 +6,22 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 08:04:10 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/10/24 07:33:38 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/11/20 09:48:03 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Fixed.hpp"
 
-// ATTRIBUTS
 
+// DEFINE LOG IF LOG.CPP IS NOT COMPILED WITH THIS FILE
+inline void log(std::ostream &os, const std::string &message, ...) {
+	os << "[LOG] - " << message << LEND;
+}
+
+// ATTRIBUTS
 const int Fixed::_fractionalBits = 8;
 
 // CONSTRUCTORS
-
 Fixed::Fixed( void ) : _fixedValue(0) {}
 
 Fixed::Fixed( const Fixed &other ) {
@@ -31,7 +35,6 @@ Fixed::Fixed( const float value ) : _fixedValue(roundf(value * (1 << _fractional
 Fixed::~Fixed( void ) {}
 
 // ATTRIBUTS GETTER / SETTER
-
 int	Fixed::getRawBits( void ) const {
 	return (this->_fixedValue);
 }
@@ -41,7 +44,6 @@ void	Fixed::setRawBits( int const raw) {
 }
 
 // TYPE CONVERSION
-
 int	Fixed::toInt( void ) const {
 	return (this->_fixedValue  >> this->_fractionalBits);
 }
@@ -51,7 +53,6 @@ float	Fixed::toFloat( void ) const {
 }
 
 // STATICS METHODS
-
 Fixed	&Fixed::min( Fixed &lhs, Fixed &rhs ) {
 	return (lhs.getRawBits() <= rhs.getRawBits() ? lhs : rhs);
 }
@@ -69,7 +70,6 @@ const Fixed	&Fixed::max( const Fixed &lhs, const Fixed &rhs ) {
 }
 
 // OPERATORS OVERLOADING - AFFECTATION
-
 Fixed	&Fixed::operator=( const Fixed &other ) {
 	if (this != &other) {
 		this->_fixedValue = other.getRawBits();
@@ -78,14 +78,12 @@ Fixed	&Fixed::operator=( const Fixed &other ) {
 }
 
 // OPERATORS OVERLOADING - INSERTION
-
 std::ostream	&operator<<( std::ostream &os, Fixed const &fixed ) {
 	os << fixed.toFloat();
 	return (os);
 }
 
 // OPERATORS OVERLOADING - INCREMENTATION
-
 Fixed	&Fixed::operator++( void ) {
 	this->_fixedValue++;
 	return (*this);
@@ -98,7 +96,6 @@ Fixed	Fixed::operator++( int ) {
 }
 
 // OPERATORS OVERLOADING - DECREMENTATION
-
 Fixed	&Fixed::operator--( void ) {
 	this->_fixedValue--;
 	return (*this);
@@ -111,7 +108,6 @@ Fixed	Fixed::operator--( int ) {
 }
 
 // OPERATORS OVERLOADING - ARITHMETIC
-
 Fixed	Fixed::operator+( const Fixed &other ) const {
 	Fixed temp;
 	temp.setRawBits(this->getRawBits() + other.getRawBits());
@@ -132,9 +128,7 @@ Fixed	Fixed::operator/( const Fixed &other ) const {
 	return (Fixed(this->toFloat() / other.toFloat()));
 }
 
-
 // OPERATORS OVERLOADING - LOGICAL
-
 bool	operator>( const Fixed &lhs, const Fixed &rhs ) {
 	return (lhs.getRawBits() > rhs.getRawBits());
 }
