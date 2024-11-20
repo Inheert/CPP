@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 08:04:07 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/10/24 10:14:15 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/11/20 10:35:09 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,14 @@
 
 #include <iostream>
 #include <cmath>
+
+#ifdef _WIN32
+	#define LEND "\r\n"
+#else
+	#define LEND "\n"
+#endif
+
+void	log(std::ostream &os, const std::string &message, ...);
 
 class	Fixed {
 
