@@ -6,13 +6,11 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 07:38:38 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/10/30 08:57:08 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/02/24 08:18:52 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#ifndef POINT_HPP
-# define POINT_HPP
 
 #include "../Fixed/Fixed.hpp"
 
@@ -33,5 +31,3 @@ class Point {
 		Point	&operator=( const Point &other );
 		Fixed	operator-( const Point &other ) const;
 };
-
-#endif

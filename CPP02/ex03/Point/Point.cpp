@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/24 07:38:33 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/10/30 14:18:57 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/02/24 08:19:10 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,8 @@ const Fixed	&Point::getY( void ) const {
 }
 
 Point	&Point::operator=( const Point &other ) {
-	return (void(other), *this);
+	(void)other;
+	return (*this);
 };
 
 Fixed	Point::operator-( const Point &other ) const {
@@ -42,5 +43,3 @@ Fixed	Point::operator-( const Point &other ) const {
 	Fixed	temp((maxX + maxY) - (minX + minY));
 	return (temp);
 }
-
-
