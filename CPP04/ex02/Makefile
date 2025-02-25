@@ -1,15 +1,17 @@
 NAME = a.out
 
-CC = g++
+CC = c++
 
-CFLAGS = -Wall -Wextra -Werror -std=c++98
+CFLAGS = -Wall -Wextra -Werror -g3 -std=c++98
 
 INCLUDES = -I ./includes/
 
 SRC_DIR = .
 BIN_DIR = ./bin
 
-SOURCES =
+SOURCES = main.cpp utils/Log/Log.cpp \
+			A_Animal/A_Animal.cpp Dog/Dog.cpp \
+			Cat/Cat.cpp Brain/Brain.cpp
 
 OBJECTS = $(addprefix $(BIN_DIR)/,$(SOURCES:.cpp=.o))
 
