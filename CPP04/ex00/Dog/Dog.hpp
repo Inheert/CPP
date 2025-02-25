@@ -1,34 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Dog.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 06:46:38 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/01/27 09:23:32 by tclaereb         ###   ########.fr       */
+/*   Created: 2025/02/25 07:26:50 by tclaereb          #+#    #+#             */
+/*   Updated: 2025/02/25 07:26:51 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "../ClapTrap/ClapTrap.hpp"
+#include "../Animal/Animal.hpp"
 
-class ScavTrap : public virtual ClapTrap
+class Dog : public virtual Animal
 {
-	private:
-		bool	_is_guarding_gate;
-
 	public:
-		ScavTrap( void );
-		ScavTrap( std::string name );
-		ScavTrap( const ScavTrap &other );
-		virtual	~ScavTrap( void );
+		Dog( void );
+		~Dog( void );
 
-		ScavTrap &operator=( const ScavTrap &other );
+		Dog( const Dog &other );
 
-		bool	getGuardingMode();
+		Dog	&operator=( const Dog &other );
 
-		void	attack( const std::string &target );
-		void	guardGate( void );
+		virtual void	makeSound( void ) const;
 };

@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 08:42:31 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/11/14 06:43:37 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/02/25 03:16:09 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ ClapTrap::ClapTrap( std::string name ) : _name(name), _health(10), _energy(10), 
 }
 
 ClapTrap::ClapTrap( const ClapTrap &other ) {
-	*this = other;
+	this->_name = other._name;
+	this->_health = other._health;
+	this->_energy = other._energy;
+	this->_damage = other._damage;
 
 	std::cout << "Copy constructor called: " << this->_name << "." << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 07:28:15 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/11/15 08:40:01 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/02/25 04:09:58 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,6 @@ class DiamondTrap : public ScavTrap, public FragTrap
 		~DiamondTrap( void );
 
 		DiamondTrap &operator=( const DiamondTrap &other );
+
+		void	whoAmI( void );
 };

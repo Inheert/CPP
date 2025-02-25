@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/15 07:28:10 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/11/15 10:50:48 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/02/25 04:36:28 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,14 +25,14 @@ DiamondTrap::DiamondTrap( void ) : ClapTrap() {
 }
 
 DiamondTrap::DiamondTrap( std::string name ) : ClapTrap(name + "_clap_name") {
-	this->_name = name;
 
 	this->_className = "DiamondTrap";
 	this->_health = FragTrap::_healthConst;
 	this->_damage = FragTrap::_damageConst;
 	this->_energy = ScavTrap::_energyConst;
 
-	std::cout << GREEN <<  this->_className << " constructor called: " << name << "." << DEFAULT << std::endl;
+	this->_name = name;
+	std::cout << GREEN <<  this->_className << " constructor called: " << this->_name << "." << DEFAULT << std::endl;
 }
 
 DiamondTrap::DiamondTrap( const DiamondTrap &other ) : ClapTrap(other), ScavTrap(other), FragTrap(other) {
@@ -52,6 +52,13 @@ DiamondTrap	&DiamondTrap::operator=( const DiamondTrap &other ) {
 	FragTrap::operator=(other);
 	ScavTrap::operator=(other);
 
+	this->_name = other._name;
+
 	std::cout << YELLOW << this->_className << " operator = called." << DEFAULT << std::endl;
 	return (*this);
+}
+
+void	DiamondTrap::whoAmI( void ) {
+	std::cout << "DiamondTrap name: " << this->_name << std::endl;
+	std::cout << "ClapTrap name: " << ClapTrap::_name << std::endl;
 }

@@ -1,34 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   AMateria.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 06:46:38 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/01/27 09:23:32 by tclaereb         ###   ########.fr       */
+/*   Created: 2025/02/25 11:19:42 by tclaereb          #+#    #+#             */
+/*   Updated: 2025/02/25 11:22:52 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "../ClapTrap/ClapTrap.hpp"
+#include <iostream>
+#include <string>
 
-class ScavTrap : public virtual ClapTrap
+class AMateria
 {
-	private:
-		bool	_is_guarding_gate;
+	protected:
 
 	public:
-		ScavTrap( void );
-		ScavTrap( std::string name );
-		ScavTrap( const ScavTrap &other );
-		virtual	~ScavTrap( void );
+		AMateria( std::string const & type );
+		~AMateria( void );
 
-		ScavTrap &operator=( const ScavTrap &other );
+		AMateria( AMateria const & other );
+		AMateria& operator=( AMateria const & other );
 
-		bool	getGuardingMode();
-
-		void	attack( const std::string &target );
-		void	guardGate( void );
-};
+		virtual AMateria*	clone() const = 0;
+		virtual void		use	( ICharacter& target );
+}

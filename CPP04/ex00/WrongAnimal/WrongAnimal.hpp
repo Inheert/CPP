@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 06:46:38 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/01/27 09:23:32 by tclaereb         ###   ########.fr       */
+/*   Created: 2025/02/24 08:47:12 by tclaereb          #+#    #+#             */
+/*   Updated: 2025/02/25 05:06:32 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "../ClapTrap/ClapTrap.hpp"
+#include <iostream>
+#include <string>
+#include "../utils/Log/Log.hpp"
 
-class ScavTrap : public virtual ClapTrap
+class WrongAnimal
 {
-	private:
-		bool	_is_guarding_gate;
+	protected:
+		std::string	_type;
 
 	public:
-		ScavTrap( void );
-		ScavTrap( std::string name );
-		ScavTrap( const ScavTrap &other );
-		virtual	~ScavTrap( void );
+		WrongAnimal( void );
+		virtual ~WrongAnimal( void );
 
-		ScavTrap &operator=( const ScavTrap &other );
+		WrongAnimal( std::string type );
+		WrongAnimal( WrongAnimal const &other );
+		WrongAnimal	&operator=( WrongAnimal const &other );
 
-		bool	getGuardingMode();
-
-		void	attack( const std::string &target );
-		void	guardGate( void );
+		std::string		getType( void ) const;
+		virtual void	makeSound( void ) const;
 };

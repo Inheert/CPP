@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 08:03:21 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/11/20 10:38:26 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/02/24 08:32:24 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ int	main( void ) {
 	Point				c(6.0f, 3.0f);
 	std::ostringstream	oss;
 
-	oss << bsp(a, b, c, Point(4.0f, 3.0f)); log(std::cout, oss.str(), 0); oss.str();
+	oss << bsp(a, b, c, Point(4.0f, 3.0f)); log(std::cout, oss.str(), 0); oss.str("");
+	oss << bsp(a, b, c, Point(2.0f, 3.0f)); log(std::cout, oss.str(), 0); oss.str("");
+	oss << bsp(a, b, c, Point(8.0f, 3.0f)); log(std::cout, oss.str(), 0); oss.str("");
+	oss << bsp(a, b, c, Point(1.0f, 6.0f)); log(std::cout, oss.str(), 0); oss.str("");
+	oss << bsp(a, b, c, Point(4.0f, 4.0f)); log(std::cout, oss.str(), 0); oss.str("");
+	oss << bsp(a, b, c, Point(5.0f, 5.0f)); log(std::cout, oss.str(), 0); oss.str("");
 	return 0;
 }

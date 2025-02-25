@@ -1,34 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   Brain.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 06:46:38 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/01/27 09:23:32 by tclaereb         ###   ########.fr       */
+/*   Created: 2025/02/25 07:27:20 by tclaereb          #+#    #+#             */
+/*   Updated: 2025/02/25 08:18:33 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "../ClapTrap/ClapTrap.hpp"
+#include <iostream>
+#include <string>
+#include "../utils/Log/Log.hpp"
 
-class ScavTrap : public virtual ClapTrap
+class Brain
 {
 	private:
-		bool	_is_guarding_gate;
+		std::string	_ideas[ 100 ];
 
 	public:
-		ScavTrap( void );
-		ScavTrap( std::string name );
-		ScavTrap( const ScavTrap &other );
-		virtual	~ScavTrap( void );
+		Brain( void );
+		~Brain( void );
 
-		ScavTrap &operator=( const ScavTrap &other );
+		Brain( Brain const &other );
+		Brain&	operator=( Brain const &other );
 
-		bool	getGuardingMode();
-
-		void	attack( const std::string &target );
-		void	guardGate( void );
+		std::string const*	getIdeas( void ) const;
+		void	setIdeas( std::string idea, unsigned int idx );
 };

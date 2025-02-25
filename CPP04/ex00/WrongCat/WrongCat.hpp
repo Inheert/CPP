@@ -1,34 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ScavTrap.hpp                                       :+:      :+:    :+:   */
+/*   WrongCat.hpp                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/11/14 06:46:38 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/01/27 09:23:32 by tclaereb         ###   ########.fr       */
+/*   Created: 2025/02/24 09:08:34 by tclaereb          #+#    #+#             */
+/*   Updated: 2025/02/25 05:07:35 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "../WrongAnimal/WrongAnimal.hpp"
 
-#include "../ClapTrap/ClapTrap.hpp"
-
-class ScavTrap : public virtual ClapTrap
+class	WrongCat : public virtual WrongAnimal
 {
-	private:
-		bool	_is_guarding_gate;
-
 	public:
-		ScavTrap( void );
-		ScavTrap( std::string name );
-		ScavTrap( const ScavTrap &other );
-		virtual	~ScavTrap( void );
+		WrongCat( void );
+		virtual ~WrongCat( void );
 
-		ScavTrap &operator=( const ScavTrap &other );
-
-		bool	getGuardingMode();
-
-		void	attack( const std::string &target );
-		void	guardGate( void );
+		WrongCat( WrongCat const &other );
+		WrongCat&	operator=( WrongCat const &other );
 };
+

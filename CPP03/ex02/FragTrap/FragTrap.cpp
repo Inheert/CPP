@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 07:21:58 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/11/14 09:41:20 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/02/25 04:07:08 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,13 +31,11 @@ FragTrap::FragTrap( std::string name ) : ClapTrap(name) {
 }
 
 FragTrap::FragTrap( const FragTrap &other ) : ClapTrap(other) {
-	*this = other;
-
 	std::cout << GREEN << this->_className << " copy constructor called: " << this->_name << "." << DEFAULT << std::endl;
 }
 
 FragTrap::~FragTrap( void ) {
-	std::cout << RED << "FragTrap destructor called: " << this->_name << "." << DEFAULT << std::endl;
+	std::cout << RED << this->_className << " destructor called: " << this->_name << "." << DEFAULT << std::endl;
 }
 
 FragTrap	&FragTrap::operator=( const FragTrap &other ) {
@@ -69,5 +67,5 @@ void	FragTrap::highFivesGuys( void ) {
 	else if (value == "no")
 		std::cout << "*Spite on your shoes.*" << std::endl;
 	else
-		std::cout << "*FragTrap is confused, this answer has too high IQ for him to understand.*" << std::endl;
+		std::cout << "*" << this->_className << " " << this->_name << " is confused, this answer has too high IQ for him to understand.*" << std::endl;
 }

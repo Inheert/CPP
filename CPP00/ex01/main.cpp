@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 09:14:37 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/11/18 08:45:19 by tclaereb         ###   ########.fr       */
+/*   Updated: 2024/12/10 10:40:29 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -113,7 +113,5 @@ int	main(void) {
 		else
 			std::cout << "\033[0;31m Please enter a valid command.\033[0m" << std::endl << std::endl;
 	}
-	char *str = "feofnew";
-	printf("%p", str);
 	return (0);
 }

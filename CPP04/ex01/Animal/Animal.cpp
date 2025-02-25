@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 09:08:26 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/02/25 05:54:51 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/02/25 09:11:18 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,4 +49,8 @@ std::string	Animal::getType( void ) const {
 
 void	Animal::makeSound( void ) const {
 	LOG() << "I need to be a specific animal to make sound.";
+}
+
+Brain	*Animal::getBrain( void ) const {
+	return ( NULL );
 }

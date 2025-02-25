@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 08:42:31 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/11/14 09:18:05 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/02/25 04:06:02 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ ClapTrap::ClapTrap( std::string name ) : _className("ClapTrap"), _name(name), _h
 }
 
 ClapTrap::ClapTrap( const ClapTrap &other ) {
-	*this = other;
+	this->_name = other._name;
+	this->_health = other._health;
+	this->_energy = other._energy;
+	this->_damage = other._damage;
 
 	std::cout << GREEN <<  this->_className << " copy constructor called: " << this->_name << "." << DEFAULT << std::endl;
 }
@@ -68,7 +71,7 @@ void	ClapTrap::cantDoAnyAction( std::string action ) const {
 
 void	ClapTrap::attack( const std::string &target ) {
 	if (!this->_energy || !this->_health)
-		return (this->cantDoAnyAction("attack"));
+	return (this->cantDoAnyAction("attack"));
 
 	this->_energy--;
 

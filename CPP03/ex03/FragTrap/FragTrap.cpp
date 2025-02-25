@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 07:21:58 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/11/15 10:50:29 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/02/19 10:49:19 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ FragTrap::FragTrap( std::string name ) : ClapTrap(name) {
 	this->_health = 100;
 	this->_damage = 30;
 	this->_energy = 100;
-
 	std::cout << GREEN <<  this->_className << " constructor called: " << name << "." << DEFAULT << std::endl;
 }
 

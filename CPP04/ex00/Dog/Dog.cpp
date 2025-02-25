@@ -1,15 +1,31 @@
-#include "Dog.class.hpp"
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Dog.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/25 07:26:53 by tclaereb          #+#    #+#             */
+/*   Updated: 2025/02/25 09:32:09 by tclaereb         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
-Dog::Dog( void ) : Animal( "Dog" ) {}
+#include "Dog.hpp"
 
-Dog::~Dog( void ) {}
+Dog::Dog( void ) : Animal( "Dog" ) {
+	LOGC( GREEN ) << "Dog default constructor.";
+}
+
+Dog::~Dog( void ) {
+	LOGC( RED ) << "Dog destructor.";
+}
 
 Dog::Dog( const Dog &other ) : Animal( other ) {
-	this->_type = other._type;
+	LOGC( GREEN ) << "Dog copy constructor.";
 }
 
 Dog	&Dog::operator=( const Dog &other ) {
-	this->_type = other._type;
+	Animal::operator=( other );
 
 	LOGC( YELLOW ) << this->_type << " assignation overload called.";
 

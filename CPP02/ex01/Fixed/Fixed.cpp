@@ -6,11 +6,11 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 08:04:10 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/11/20 09:40:27 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/02/24 07:41:06 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Fixed.hpp"
+#include "Fixed.class.hpp"
 
 inline void log(std::ostream &os, const std::string &message, ...) {
 	os << "[LOG] - " << message << LEND;
@@ -32,7 +32,7 @@ Fixed::Fixed( const float value ) : _fixedValue(roundf(value * (1 << _fractional
 
 Fixed::Fixed( const Fixed &other ) {
 	log(std::cout, "Copy constructor called", 2, NULL);
-	*this = other;
+	this->_fixedValue = other.getRawBits();
 }
 
 Fixed::~Fixed( void ) {

@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/14 07:21:58 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/11/14 09:25:31 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/02/25 03:55:01 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,12 +29,10 @@ ScavTrap::ScavTrap( std::string name ) : ClapTrap(name) {
 	this->_energy = 50;
 	this->_is_guarding_gate = false;
 
-	std::cout << GREEN << this->_className << " default constructor called." << DEFAULT << std::endl;
+	std::cout << GREEN << this->_className << " constructor called: " << name << "." << DEFAULT << std::endl;
 }
 
 ScavTrap::ScavTrap( const ScavTrap &other ) : ClapTrap(other) {
-	*this = other;
-
 	std::cout << GREEN << this->_className << " copy constructor called: " << this->_name << "." << DEFAULT << std::endl;
 }
 
@@ -57,12 +55,12 @@ bool	ScavTrap::getGuardingMode( void ) {
 }
 
 void	ScavTrap::attack(  const std::string &target ) {
-		if (!this->_energy || !this->_health)
+	if (!this->_energy || !this->_health)
 		return (this->cantDoAnyAction("attack"));
 
 	this->_energy--;
 
-	std::cout << this->_className << this->_name << " smashed " << target << ", causing " << this->_damage << " points of damage!" << std::endl;
+	std::cout << this->_className << " " << this->_name << " smashed " << target << ", causing " << this->_damage << " points of damage!" << std::endl;
 }
 
 void	ScavTrap::guardGate( void ) {

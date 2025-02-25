@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 08:42:29 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/11/14 09:41:34 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/02/25 04:05:53 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,10 @@ int	main( void ) {
 	b.takeDamage(a.getDamage());
 	a.attack(b.getName());
 	b = FragTrap("NewOne");
+	b.takeDamage(a.getDamage());
+	a.attack(b.getName());
+	b.takeDamage(a.getDamage());
+	a.attack(b.getName());
 	b.takeDamage(a.getDamage());
 	a.attack(b.getName());
 	b.takeDamage(a.getDamage());

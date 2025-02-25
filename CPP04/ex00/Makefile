@@ -1,6 +1,18 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/02/24 09:08:23 by tclaereb          #+#    #+#              #
+#    Updated: 2025/02/25 09:36:14 by tclaereb         ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 NAME = a.out
 
-CC = g++
+CC = c++
 
 CFLAGS = -Wall -Wextra -Werror -std=c++98
 
@@ -9,7 +21,10 @@ INCLUDES = -I ./includes/
 SRC_DIR = .
 BIN_DIR = ./bin
 
-SOURCES = main.cpp utils/Log/Log.cpp Animal/Animal.cpp Dog/Dog.cpp Cat/Cat.cpp
+SOURCES = main.cpp utils/Log/Log.cpp \
+			Animal/Animal.cpp Dog/Dog.cpp \
+			Cat/Cat.cpp WrongAnimal/WrongAnimal.cpp \
+			WrongCat/WrongCat.cpp
 
 OBJECTS = $(addprefix $(BIN_DIR)/,$(SOURCES:.cpp=.o))
 

@@ -1,18 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*   Fixed.class.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 08:04:07 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/11/20 09:16:06 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/02/24 08:18:02 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
-#ifndef FIXED_HPP
-# define FIXED_HPP
 
 #include <iostream>
 #include <cmath>
@@ -47,5 +45,3 @@ class	Fixed {
 };
 
 std::ostream    &operator<<(std::ostream &o, Fixed const &fixed);
-
-#endif

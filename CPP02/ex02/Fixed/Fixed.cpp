@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 08:04:10 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/11/20 09:48:03 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/02/24 08:02:04 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ const int Fixed::_fractionalBits = 8;
 Fixed::Fixed( void ) : _fixedValue(0) {}
 
 Fixed::Fixed( const Fixed &other ) {
-	*this = other;
+	this->_fixedValue = other.getRawBits();
 }
 
 Fixed::Fixed( const int value ) : _fixedValue(value << _fractionalBits) {}

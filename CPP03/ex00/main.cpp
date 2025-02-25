@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/06 08:42:29 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/11/14 06:31:12 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/02/25 03:11:17 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,7 @@ int	main( void ) {
 	a.attack(b.getName());
 	a.attack(b.getName());
 	a.attack(b.getName());
+	std::cout << "'a' health: " << a.getHealth() << std::endl;
+	std::cout << "'b' health: " << b.getHealth() << std::endl;
 	return (0);
 }

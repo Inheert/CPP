@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 08:04:10 by tclaereb          #+#    #+#             */
-/*   Updated: 2024/11/20 08:46:35 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/02/24 07:44:02 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ Fixed::Fixed( void ) : _fixedValue(0) {
 
 Fixed::Fixed( const Fixed &other ) {
 	log(std::cout, "Copy constructor called", 2, NULL);
-	*this = other;
+	this->_fixedValue = other.getRawBits();
 }
 
 Fixed::~Fixed( void ) {
