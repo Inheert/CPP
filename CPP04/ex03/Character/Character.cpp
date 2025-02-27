@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 08:01:27 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/02/27 13:18:33 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/02/27 14:50:01 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,6 @@ Character::Character( Character const & other ) {
 
 Character& Character::operator=( Character const & other ) {
 	LOGC( YELLOW ) << "Character assignation overload.";
-
 	if ( this == &other )
 		return ( *this );
 
@@ -64,6 +63,7 @@ AMateria** Character::getInventory( void ) const {
 
 
 void Character::copyData( Character const & other ) {
+	LOGC( CYAN ) << "Deep copy in progress for character " << this << ".";
 	for ( unsigned int i = 0; i < 4; i++ ) {
 		if ( this->_inventory[ i ] )
 			delete this->_inventory[ i ];
@@ -83,13 +83,18 @@ void Character::equip( AMateria* m ) {
 
 	for ( unsigned int i = 0; i < 4; i++ ) {
 		if ( m == this->_inventory[ i ] ) {
+			LOGC( CYAN ) << "Materia already exist in " << this << " inventory.";
 			return ;
 		}
 		if ( !this->_inventory[ i ] && idx == -1 )
 			idx = i;
 	}
-	if ( idx != -1 )
+	if ( idx != -1 ) {
+		LOGC( CYAN ) << "New Materia added to character " << this << ".";
 		this->_inventory[ idx ] = m;
+	}
+	else
+		LOGC( CYAN ) << "No more room in character " << this << " inventory.";
 }
 
 void Character::unequip( int idx ) {

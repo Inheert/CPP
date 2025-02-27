@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 14:12:23 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/02/27 13:44:43 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/02/27 15:00:12 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,12 +20,20 @@ MateriaSource::MateriaSource( void ) {
 }
 
 MateriaSource::~MateriaSource( void ) {
+	LOGC( RED ) << "MateriaSource destructor.";
+
+	bool alreadyDeleted;
+
 	for ( unsigned int i = 0; i < 4; i++ ) {
-		if ( this->_learned[ i ] ) {
+		alreadyDeleted = false;
+		for ( unsigned int j = 0; j < 4; j++ ) {
+			if ( this->_learned[ i ] && this->_learned[ i ] == this->_learned[ j ] && j < i )
+				alreadyDeleted = true;
+		}
+		if ( this->_learned[ i ] && !alreadyDeleted ) {
 			delete this->_learned[ i ];
 		}
 	}
-	LOGC( RED ) << "MateriaSource destructor.";
 }
 
 MateriaSource::MateriaSource( MateriaSource const & other ) {
@@ -54,8 +62,12 @@ void	MateriaSource::learnMateria( AMateria* m ) {
 		if ( !this->_learned[ i ] && idx == -1 )
 			idx = i;
 	}
-	if ( idx != -1 )
+	if ( idx != -1 ) {
+		LOGC( CYAN ) << "New Materia learn by MateriaSource " << this << ".";
 		this->_learned[ idx ] = m;
+	}
+	else
+		LOGC( CYAN ) << "MateriaSource " << this << " cant learn more AMateria.";
 }
 
 AMateria* MateriaSource::createMateria( std::string const & other ) {

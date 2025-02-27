@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 07:32:36 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/02/27 14:21:52 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/02/27 14:29:20 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,6 @@ int	main( void ) {
 
 	AAnimal *c = new Dog();
 
-	AAnimal d;
 	// A_Animal d;
 
 	delete c;
