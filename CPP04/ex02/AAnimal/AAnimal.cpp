@@ -1,56 +1,56 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   A_Animal.cpp                                       :+:      :+:    :+:   */
+/*   AAnimal.cpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/24 09:08:26 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/02/25 09:33:19 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/02/27 14:21:01 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "A_Animal.hpp"
+#include "AAnimal.hpp"
 
-A_Animal::A_Animal( void ) : _type( "Animal" ) {
-	LOGC( GREEN ) << "A_Animal default constructor.";
+AAnimal::AAnimal( void ) : _type( "Animal" ) {
+	LOGC( GREEN ) << "AAnimal default constructor.";
 }
 
 
-A_Animal::~A_Animal( void ) {
-	LOGC( RED ) << "A_Animal destructor.";
+AAnimal::~AAnimal( void ) {
+	LOGC( RED ) << "AAnimal destructor.";
 }
 
-A_Animal::A_Animal( const std::string type ) : _type( type ) {
-	LOGC( GREEN ) << "A_Animal constructor.";
+AAnimal::AAnimal( const std::string type ) : _type( type ) {
+	LOGC( GREEN ) << "AAnimal constructor.";
 }
 
-A_Animal::A_Animal( const A_Animal &other ) {
+AAnimal::AAnimal( const AAnimal &other ) {
 	this->_type = other._type;
 
-	LOGC( GREEN ) <<"A_Animal copy constructor.";
+	LOGC( GREEN ) <<"AAnimal copy constructor.";
 }
 
-A_Animal	&A_Animal::operator=( const A_Animal &other ) {
-	LOGC( YELLOW ) << "A_Animal assignation overload called.";
+AAnimal	&AAnimal::operator=( const AAnimal &other ) {
+	LOGC( YELLOW ) << "AAnimal assignation overload called.";
 
 	this->_type = other._type;
 
 	return ( *this );
 }
 
-void	A_Animal::setType( const std::string newType ) {
+void	AAnimal::setType( const std::string newType ) {
 	this->_type = newType;
 }
 
-std::string	A_Animal::getType( void ) const {
+std::string	AAnimal::getType( void ) const {
 	return ( this->_type );
 }
 
-void	A_Animal::makeSound( void ) const {
+void	AAnimal::makeSound( void ) const {
 	LOG() << "I need to be a specific animal to make sound.";
 }
 
-Brain	*A_Animal::getBrain( void ) const {
+Brain	*AAnimal::getBrain( void ) const {
 	return ( NULL );
 }

@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 10:51:39 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/02/27 13:51:07 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/02/26 13:32:49 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,8 @@
 // Macro used to call Log() constructor without having to specify the macro used by the Log class.
 #define LOG() Log( __FILE__, __PRETTY_FUNCTION__, __LINE__ )
 #define LOGC( color ) Log( color, __FILE__, __PRETTY_FUNCTION__, __LINE__ )
+#define MSG() Log( true )
+#define MSGC( color ) Log( color, true )
 
 // Macro used to customize the Log header.
 #define LOGFLAGS( flags ) { Log::logData = flags; }
@@ -54,6 +56,8 @@ class Log {
 		std::string			_func;
 		std::string			_line;
 
+		bool				_msg;
+
 	public:
 		static int const	logFile;
 		static int const	logFunc;
@@ -63,6 +67,8 @@ class Log {
 
 		Log( std::string file, std::string func, int line );
 		Log( enumColors color, std::string file, std::string func, int line );
+		Log( bool msg );
+		Log( enumColors color, bool msg );
 
 		~Log();
 

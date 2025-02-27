@@ -1,6 +1,6 @@
 #include "Cat.hpp"
 
-Cat::Cat( void ) : A_Animal( "Cat" ), _brain( new Brain ) {
+Cat::Cat( void ) : AAnimal( "Cat" ), _brain( new Brain ) {
 	LOGC( GREEN ) << "Cat default constructor.";
 }
 
@@ -10,14 +10,14 @@ Cat::~Cat( void ) {
 	delete this->_brain;
 }
 
-Cat::Cat( const Cat &other ) : A_Animal( other ) {
+Cat::Cat( const Cat &other ) : AAnimal( other ) {
 	LOGC( GREEN ) << "Cat copy constructor.";
 
 	this->_brain = other._brain;
 }
 
 Cat	&Cat::operator=( const Cat &other ) {
-	A_Animal::operator=( other );
+	AAnimal::operator=( other );
 
 	LOGC( YELLOW ) << this->_type << " assignation overload called.";
 

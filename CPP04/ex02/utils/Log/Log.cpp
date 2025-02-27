@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 10:51:35 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/02/25 07:24:23 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/02/27 09:16:27 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ std::string const	colors[] = {
 	"\033[0m",
 };
 
-Log::Log( std::string file, std::string func, int line ) : _first( true ) {
+Log::Log( std::string file, std::string func, int line ) {
 	std::stringstream	ss;
 
 	ss << line;
@@ -41,7 +41,7 @@ Log::Log( std::string file, std::string func, int line ) : _first( true ) {
 	this->displayDebug( DEFAULT );
 }
 
-Log::Log( enumColors color, std::string file, std::string func, int line ) : _first( true ){
+Log::Log( enumColors color, std::string file, std::string func, int line ) {
 	std::stringstream	ss;
 
 	ss << line;

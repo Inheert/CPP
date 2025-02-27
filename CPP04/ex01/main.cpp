@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 07:32:36 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/02/25 09:19:33 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/02/27 14:08:11 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,8 @@ int	main( void ) {
 
 	Brain* 	brain2 = animals[ ( int )( tblLen * 0.5 + 1 ) ]->getBrain();
 
-	brain2->setIdeas( "Awful idea", 0 );
+	for ( unsigned int i = 0; i < 100; i++ )
+		brain2->setIdeas( "Awful idea", i );
 
 	LOG() << "Cat1 idea: " << brain->getIdeas()[ 0 ];
 	LOG() << "Cat2 idea: " << brain2->getIdeas()[ 0 ];

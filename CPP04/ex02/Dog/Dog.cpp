@@ -1,6 +1,6 @@
 #include "Dog.hpp"
 
-Dog::Dog( void ) : A_Animal( "Dog" ), _brain( new Brain ) {
+Dog::Dog( void ) : AAnimal( "Dog" ), _brain( new Brain ) {
 	LOGC( GREEN ) << "Dog default constructor.";
 }
 
@@ -10,14 +10,14 @@ Dog::~Dog( void ) {
 	delete this->_brain;
 }
 
-Dog::Dog( const Dog &other ) : A_Animal( other ) {
+Dog::Dog( const Dog &other ) : AAnimal( other ) {
 	LOGC( GREEN ) << "Dog copy constructor.";
 
 	this->_brain = other._brain;
 }
 
 Dog	&Dog::operator=( const Dog &other ) {
-	A_Animal::operator=( other );
+	AAnimal::operator=( other );
 
 	LOGC( YELLOW ) << this->_type << " assignation overload called.";
 

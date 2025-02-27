@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/25 07:27:24 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/02/25 09:11:50 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/02/27 09:17:35 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ Brain::Brain( Brain const &other ) {
 
 	std::string const*	otherIdeas = other.getIdeas();
 
-	for ( int i = 0; otherIdeas; i++ ) {
+	for ( int i = 0; i < 100; i++ ) {
 		this->setIdeas( otherIdeas[ i ], i );
 	}
 }
@@ -39,7 +39,7 @@ Brain&	Brain::operator=( Brain const &other ) {
 
 	std::string const*	otherIdeas = other.getIdeas();
 
-	for ( int i = 0; otherIdeas; i++ ) {
+	for ( int i = 0; i < 100; i++ ) {
 		this->setIdeas( otherIdeas[ i ], i );
 	}
 

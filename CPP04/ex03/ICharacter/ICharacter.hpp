@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   ICharacter.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/25 07:32:36 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/02/27 14:21:52 by tclaereb         ###   ########.fr       */
+/*   Created: 2025/02/26 05:15:23 by tclaereb          #+#    #+#             */
+/*   Updated: 2025/02/26 06:48:53 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils/Log/Log.hpp"
-#include "AAnimal/AAnimal.hpp"
-#include "Dog/Dog.hpp"
-#include "Cat/Cat.hpp"
-#include "Brain/Brain.hpp"
+#pragma once
 
-int	main( void ) {
-	Dog a = Dog();
-	Cat b = Cat();
+#include <iostream>
+#include <string>
+#include "../utils/Log/Log.hpp"
+#include "../AMateria/AMateria.hpp"
 
-	AAnimal *c = new Dog();
+class AMateria;
 
-	AAnimal d;
-	// A_Animal d;
+class ICharacter
+{
+	public:
+		virtual ~ICharacter( void ) {};
+		virtual std::string const & getName( void ) const = 0;
+		virtual void equip( AMateria* m ) = 0;
+		virtual void unequip( int idx ) = 0;
+		virtual void use( int idx, ICharacter& target ) = 0;
+};
 
-	delete c;
-	return ( 0 );
-}

@@ -10,7 +10,7 @@ SRC_DIR = .
 BIN_DIR = ./bin
 
 SOURCES = main.cpp utils/Log/Log.cpp \
-			A_Animal/A_Animal.cpp Dog/Dog.cpp \
+			AAnimal/AAnimal.cpp Dog/Dog.cpp \
 			Cat/Cat.cpp Brain/Brain.cpp
 
 OBJECTS = $(addprefix $(BIN_DIR)/,$(SOURCES:.cpp=.o))

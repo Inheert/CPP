@@ -1,30 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Ice.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/25 07:32:36 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/02/27 14:21:52 by tclaereb         ###   ########.fr       */
+/*   Created: 2025/02/26 05:56:57 by tclaereb          #+#    #+#             */
+/*   Updated: 2025/02/27 13:49:31 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "utils/Log/Log.hpp"
-#include "AAnimal/AAnimal.hpp"
-#include "Dog/Dog.hpp"
-#include "Cat/Cat.hpp"
-#include "Brain/Brain.hpp"
+#pragma once
 
-int	main( void ) {
-	Dog a = Dog();
-	Cat b = Cat();
+#include "../utils/Log/Log.hpp"
+#include "../AMateria/AMateria.hpp"
 
-	AAnimal *c = new Dog();
+class Ice : public virtual AMateria
+{
+	public:
+		Ice( void );
+		~Ice( void );
 
-	AAnimal d;
-	// A_Animal d;
+		Ice( Ice const & other );
+		Ice& operator=( Ice const & other );
 
-	delete c;
-	return ( 0 );
-}
+		// Inherited method
+		AMateria*	clone( void ) const;
+		void use( ICharacter& target );
+};

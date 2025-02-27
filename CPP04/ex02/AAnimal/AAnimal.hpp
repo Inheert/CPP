@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AMateria.hpp                                       :+:      :+:    :+:   */
+/*   AAnimal.hpp                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/25 11:19:42 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/02/26 13:51:30 by tclaereb         ###   ########.fr       */
+/*   Created: 2025/02/24 09:08:20 by tclaereb          #+#    #+#             */
+/*   Updated: 2025/02/27 14:20:43 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,26 +14,27 @@
 
 #include <iostream>
 #include <string>
+
 #include "../utils/Log/Log.hpp"
-#include "../Character/Character.hpp"
+#include "../Brain/Brain.hpp"
 
-class ICharacter;
-
-class AMateria
-{
+class AAnimal {
 	protected:
-		std::string _type;
+		std::string	_type;
+
+		AAnimal( void );
+		AAnimal( const std::string type );
+		AAnimal( const AAnimal &other );
+
+		AAnimal	&operator=( const AAnimal &other );
 
 	public:
-		AMateria( void );
-		virtual ~AMateria( void );
+		virtual ~AAnimal( void );
 
-		AMateria( AMateria const & other );
-		AMateria( std::string const & type );
-		AMateria& operator=( AMateria const & other );
 
-		std::string const & getType( void ) const;
+		void	setType( const std::string newType );
+		std::string	getType( void ) const;
 
-		virtual AMateria* clone( void ) const = 0;
-		virtual void use( ICharacter& target );
+		virtual void	makeSound( void ) const = 0;
+		virtual	Brain*	getBrain( void ) const = 0;
 };

@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 10:51:39 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/02/25 09:17:31 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/02/27 14:02:43 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,6 @@ enum	enumColors {
 class Log {
 	private:
 		static std::ostream	&os;
-		bool				_first;
 		std::string			_file;
 		std::string			_func;
 		std::string			_line;

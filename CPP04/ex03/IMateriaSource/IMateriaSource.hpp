@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   A_Animal.hpp                                       :+:      :+:    :+:   */
+/*   IMateriaSource.hpp                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/24 09:08:20 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/02/25 09:35:40 by tclaereb         ###   ########.fr       */
+/*   Created: 2025/02/26 05:20:57 by tclaereb          #+#    #+#             */
+/*   Updated: 2025/02/26 06:20:44 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,27 +14,13 @@
 
 #include <iostream>
 #include <string>
-
 #include "../utils/Log/Log.hpp"
-#include "../Brain/Brain.hpp"
+#include "../AMateria/AMateria.hpp"
 
-class A_Animal {
-	protected:
-		std::string	_type;
-
-		A_Animal( void );
-		A_Animal( const std::string type );
-		A_Animal( const A_Animal &other );
-
-		A_Animal	&operator=( const A_Animal &other );
-
+class IMateriaSource
+{
 	public:
-		virtual ~A_Animal( void );
-
-
-		void	setType( const std::string newType );
-		std::string	getType( void ) const;
-
-		virtual void	makeSound( void ) const = 0;
-		virtual	Brain*	getBrain( void ) const = 0;
+		virtual ~IMateriaSource( void ) {};
+		virtual void learnMateria( AMateria* m ) = 0;
+		virtual AMateria* createMateria( std::string const & type ) = 0;
 };
