@@ -1,0 +1,40 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   RobotomyRequestForm.cpp                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/04/21 13:57:40 by tclaereb          #+#    #+#             */
+/*   Updated: 2025/04/21 15:14:28 by tclaereb         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "RobotomyRequestForm.hpp"
+
+RobotomyRequestForm::RobotomyRequestForm( void ) : AForm( "RobotomyRequestForm", 72, 45 ), _target( "noTarget" ) {}
+
+RobotomyRequestForm::RobotomyRequestForm( std::string const target ) : AForm( "RobotomyRequestForm", 72, 45 ), _target( target ) {}
+
+RobotomyRequestForm::RobotomyRequestForm( RobotomyRequestForm const &other ) : AForm( "RobotomyRequestForm", 72, 45 ), _target( other._target ) {}
+
+RobotomyRequestForm::~RobotomyRequestForm( void ) {}
+
+RobotomyRequestForm	&RobotomyRequestForm::operator=( RobotomyRequestForm const &other ) {
+	if ( this == &other )
+		return ( *this );
+
+	this->_target = other._target;
+	return ( *this );
+}
+
+void	RobotomyRequestForm::MakeAction( void ) {
+	srand( time( NULL ) );
+
+	unsigned int	result = rand() % 10;
+
+	if ( result > 5 )
+		LOGC( SUCCESS ) << this->_target << "have been robotomized.";
+	else if ( result < 5 )
+		LOGC( WARNING ) << "Robotomatization failed.";
+}
