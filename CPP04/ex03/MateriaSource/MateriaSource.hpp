@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/26 14:12:05 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/02/27 13:48:59 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/04/29 08:06:18 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ class MateriaSource : public virtual IMateriaSource
 	private:
 		AMateria*	_learned[ 4 ];
 
-	public:
+	public:	
 		MateriaSource( void );
 		~MateriaSource( void );
 

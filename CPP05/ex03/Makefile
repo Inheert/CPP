@@ -6,7 +6,7 @@
 #    By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/24 09:08:23 by tclaereb          #+#    #+#              #
-#    Updated: 2025/04/22 07:11:28 by tclaereb         ###   ########.fr        #
+#    Updated: 2025/04/22 08:37:58 by tclaereb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,7 +23,8 @@ BIN_DIR = ./bin
 
 SOURCES = main.cpp utils/Log/Log.cpp Bureaucrat/Bureaucrat.cpp AForm/AForm.cpp \
 		PresidentialPardonForm/PresidentialPardonForm.cpp RobotomyRequestForm/RobotomyRequestForm.cpp \
-		ShrubberyCreationForm/ShrubberyCreationForm.cpp
+		ShrubberyCreationForm/ShrubberyCreationForm.cpp \
+		Intern/Intern.cpp
 
 OBJECTS = $(addprefix $(BIN_DIR)/,$(SOURCES:.cpp=.o))
 

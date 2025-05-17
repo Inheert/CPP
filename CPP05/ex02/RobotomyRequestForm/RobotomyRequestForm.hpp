@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 13:54:33 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/04/21 14:14:36 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/04/22 07:01:16 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,15 @@
 
 class RobotomyRequestForm : public AForm {
 	private:
-		std::string	_target;
+		const std::string	_target;
 
 		void	MakeAction( void );
+
 	public:
 		RobotomyRequestForm( void );
-		RobotomyRequestForm( std::string const target );
-		RobotomyRequestForm( RobotomyRequestForm const &other );
+		RobotomyRequestForm( const std::string target );
+		RobotomyRequestForm( const RobotomyRequestForm &other );
 		~RobotomyRequestForm( void );
 
-		RobotomyRequestForm	&operator=( RobotomyRequestForm const &other );
+		RobotomyRequestForm	&operator=( const RobotomyRequestForm &other );
 };

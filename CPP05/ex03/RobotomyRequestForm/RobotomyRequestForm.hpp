@@ -1,34 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
+/*   RobotomyRequestForm.hpp                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/02/24 08:47:12 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/02/27 15:23:20 by tclaereb         ###   ########.fr       */
+/*   Created: 2025/04/21 13:54:33 by tclaereb          #+#    #+#             */
+/*   Updated: 2025/04/29 12:47:29 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include <iostream>
-#include <string>
+#include "../AForm/AForm.hpp"
 #include "../utils/Log/Log.hpp"
 
-class WrongAnimal
-{
-	protected:
-		std::string	_type;
+#include <cstdlib>
+
+class RobotomyRequestForm : public AForm {
+	private:
+		std::string	_target;
+
+		void	MakeAction( void );
 
 	public:
-		WrongAnimal( void );
-		virtual ~WrongAnimal( void );
+		RobotomyRequestForm( void );
+		RobotomyRequestForm( const std::string target );
+		RobotomyRequestForm( const RobotomyRequestForm &other );
+		~RobotomyRequestForm( void );
 
-		WrongAnimal( std::string type );
-		WrongAnimal( WrongAnimal const &other );
-		WrongAnimal	&operator=( WrongAnimal const &other );
-
-		std::string		getType( void ) const;
-		void	makeSound( void ) const;
+		RobotomyRequestForm		*clone( void );
+		RobotomyRequestForm	&operator=( const RobotomyRequestForm &other );
 };

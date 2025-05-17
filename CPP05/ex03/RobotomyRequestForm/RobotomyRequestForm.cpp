@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 13:57:40 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/04/22 06:52:25 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/04/29 09:15:10 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ RobotomyRequestForm::RobotomyRequestForm( const std::string target ) : AForm( "R
 RobotomyRequestForm::RobotomyRequestForm( const RobotomyRequestForm &other ) : AForm( "RobotomyRequestForm", 72, 45 ), _target( other._target ) {}
 
 RobotomyRequestForm::~RobotomyRequestForm( void ) {}
+
+RobotomyRequestForm	*RobotomyRequestForm::clone( void ) {
+	RobotomyRequestForm	*n = new RobotomyRequestForm( *this );
+	return ( n );
+}
 
 RobotomyRequestForm	&RobotomyRequestForm::operator=( const RobotomyRequestForm &other ) {
 	if ( this == &other )

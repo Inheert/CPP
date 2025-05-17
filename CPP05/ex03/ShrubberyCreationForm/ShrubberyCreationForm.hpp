@@ -1,31 +1,35 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
+/*   ShrubberyCreationForm.hpp                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/21 12:20:45 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/04/22 07:13:03 by tclaereb         ###   ########.fr       */
+/*   Created: 2025/04/22 06:44:54 by tclaereb          #+#    #+#             */
+/*   Updated: 2025/04/29 12:47:26 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include "../AForm/AForm.hpp"
+#include "../utils/Log/Log.hpp"
 
-class	PresidentialPardonForm : public AForm {
+#include <iostream>
+#include <fstream>
+
+class ShrubberyCreationForm : public AForm {
 	private:
-		const std::string	_target;
+		std::string	_target;
 
-		void MakeAction( void );
+		void	MakeAction( void );
 
 	public:
-		PresidentialPardonForm( void );
-		PresidentialPardonForm( const std::string &target );
-		PresidentialPardonForm( PresidentialPardonForm &other );
+		ShrubberyCreationForm( void );
+		ShrubberyCreationForm( const ShrubberyCreationForm &other );
+		ShrubberyCreationForm( const std::string target );
+		~ShrubberyCreationForm( void );
 
-		~PresidentialPardonForm( void );
-
-		PresidentialPardonForm	&operator=( const PresidentialPardonForm &other );
+		ShrubberyCreationForm		*clone( void );
+		ShrubberyCreationForm	&operator=( const ShrubberyCreationForm &other );
 };

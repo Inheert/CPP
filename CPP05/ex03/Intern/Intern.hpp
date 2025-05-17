@@ -1,31 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   PresidentialPardonForm.hpp                         :+:      :+:    :+:   */
+/*   Intern.hpp                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/04/21 12:20:45 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/04/22 07:13:03 by tclaereb         ###   ########.fr       */
+/*   Created: 2025/04/22 07:56:08 by tclaereb          #+#    #+#             */
+/*   Updated: 2025/04/29 12:59:00 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
 #include "../AForm/AForm.hpp"
+#include "../PresidentialPardonForm/PresidentialPardonForm.hpp"
+#include "../RobotomyRequestForm/RobotomyRequestForm.hpp"
+#include "../ShrubberyCreationForm/ShrubberyCreationForm.hpp"
 
-class	PresidentialPardonForm : public AForm {
-	private:
-		const std::string	_target;
+#include <string>
 
-		void MakeAction( void );
-
+class Intern {
 	public:
-		PresidentialPardonForm( void );
-		PresidentialPardonForm( const std::string &target );
-		PresidentialPardonForm( PresidentialPardonForm &other );
+		Intern( void );
+		Intern( const Intern &other );
 
-		~PresidentialPardonForm( void );
+		~Intern( void );
 
-		PresidentialPardonForm	&operator=( const PresidentialPardonForm &other );
+		Intern	&operator=( const Intern &other );
+
+		AForm	*MakeForm( const std::string name, const std::string target );
 };

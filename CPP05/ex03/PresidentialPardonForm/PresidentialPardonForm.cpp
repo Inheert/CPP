@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 12:24:31 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/04/22 06:49:10 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/04/29 09:14:17 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,11 @@ PresidentialPardonForm::PresidentialPardonForm( const std::string &target ) : AF
 PresidentialPardonForm::PresidentialPardonForm( PresidentialPardonForm &other ) : AForm( other ), _target( other._target ) {}
 
 PresidentialPardonForm::~PresidentialPardonForm( void ) {}
+
+PresidentialPardonForm	*PresidentialPardonForm::clone( void ) {
+	PresidentialPardonForm	*n = new PresidentialPardonForm( *this );
+	return ( n );
+}
 
 PresidentialPardonForm	&PresidentialPardonForm::operator=( const PresidentialPardonForm &other ) {
 	if ( this == &other )

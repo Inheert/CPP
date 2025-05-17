@@ -1,37 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   AForm.cpp                                          :+:      :+:    :+:   */
+/*   Form.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 09:21:53 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/04/22 07:52:44 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/04/21 07:39:40 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "AForm.hpp"
+#include "Form.hpp"
 
-bool	AForm::showTrace = false;
+bool	Form::showTrace = false;
 
-AForm::AForm( void ) : _name( "default" ), _requiredGradeSign( Bureaucrat::maxGrade ), _requiredGradeExecute( Bureaucrat::maxGrade ), _isSigned( false ) {}
+Form::Form( void ) : _name( "default" ), _requiredGradeSign( Bureaucrat::maxGrade ), _requiredGradeExecute( Bureaucrat::maxGrade ), _isSigned( false ) {}
 
-AForm::AForm( std::string const name, unsigned int const gradeToSign, unsigned int const gradeToExec ): _name( name ),
+Form::Form( std::string const name, unsigned int const gradeToSign, unsigned int const gradeToExec ): _name( name ),
 		_requiredGradeSign( this->IsGradeValid( gradeToSign ) ? gradeToSign : Bureaucrat::maxGrade ),
 		_requiredGradeExecute( this->IsGradeValid( gradeToExec ) ? gradeToExec : Bureaucrat::maxGrade ), _isSigned( false ) {}
 
-AForm::AForm( AForm const &other ): _name( other.GetName() ),
+Form::Form( Form const &other ): _name( other.GetName() ),
 		_requiredGradeSign( this->IsGradeValid( other.GetRequiredGradeSign() ) ? other.GetRequiredGradeSign() : Bureaucrat::maxGrade ),
 		_requiredGradeExecute( this->IsGradeValid( other.GetRequiredGradeExecute() ) ? other.GetRequiredGradeExecute() : Bureaucrat::maxGrade ), _isSigned( false ) {}
 
-AForm::~AForm( void ) {}
+Form::~Form( void ) {}
 
-bool	AForm::IsGradeValid( unsigned int const grade ) const {
+bool	Form::IsGradeValid( unsigned int const grade ) const {
 	try {
 		if ( grade > Bureaucrat::minGrade )
-			throw AForm::GradeTooLowException();
+			throw Form::GradeTooLowException();
 		else if ( grade < Bureaucrat::maxGrade )
-			throw AForm::GradeTooHighException();
+			throw Form::GradeTooHighException();
 
 		return ( true );
 	}
@@ -44,7 +44,7 @@ bool	AForm::IsGradeValid( unsigned int const grade ) const {
 	}
 }
 
-std::string const	AForm::GetName( void ) const {
+std::string const	Form::GetName( void ) const {
 	if ( showTrace ) {
 		LOGFLAGS( FL_ALL );
 		LOGC( DEBUG ) << "Trace";
@@ -54,7 +54,7 @@ std::string const	AForm::GetName( void ) const {
 	return ( this->_name );
 }
 
-unsigned int	AForm::GetRequiredGradeSign( void ) const {
+unsigned int	Form::GetRequiredGradeSign( void ) const {
 	if ( showTrace ) {
 		LOGFLAGS( FL_ALL );
 		LOGC( DEBUG ) << "Trace";
@@ -64,7 +64,7 @@ unsigned int	AForm::GetRequiredGradeSign( void ) const {
 	return ( this->_requiredGradeSign );
 }
 
-unsigned int AForm::GetRequiredGradeExecute( void ) const {
+unsigned int Form::GetRequiredGradeExecute( void ) const {
 	if ( showTrace ) {
 		LOGFLAGS( FL_ALL );
 		LOGC( DEBUG ) << "Trace";
@@ -74,7 +74,7 @@ unsigned int AForm::GetRequiredGradeExecute( void ) const {
 	return( this->_requiredGradeExecute );
 }
 
-bool	AForm::GetIsSigned( void ) const {
+bool	Form::GetIsSigned( void ) const {
 	if ( showTrace ) {
 		LOGFLAGS( FL_ALL );
 		LOGC( DEBUG ) << "Trace";
@@ -84,10 +84,10 @@ bool	AForm::GetIsSigned( void ) const {
 	return ( this->_isSigned );
 }
 
-void	AForm::BeSigned( Bureaucrat const &signer ) {
+void	Form::BeSigned( Bureaucrat const &signer ) {
 	try {
 		if ( signer.GetGrade() > this->_requiredGradeSign )
-			throw AForm::GradeTooLowException();
+			throw Form::GradeTooLowException();
 	}
 	catch ( std::exception &e ) {
 		LOGFLAGS( FL_ALL );
@@ -104,30 +104,10 @@ void	AForm::BeSigned( Bureaucrat const &signer ) {
 	}
 
 	this->_isSigned = true;
-	LOGC( SUCCESS ) << signer.GetName() << " signed " << this->_name;
+	LOGC( INFO ) << signer.GetName() << " signed " << this->_name;
 }
 
-void	AForm::execute( Bureaucrat const &executor ) {
-	try {
-		if ( !this->_isSigned )
-			throw AForm::FormNotSignedException();
-		if ( this->_requiredGradeExecute < executor.GetGrade() )
-			throw AForm::GradeTooLowException();
-	}
-	catch ( std::exception &e ) {
-		LOGFLAGS( FL_ALL );
-		LOGC( CRITICAL ) << e.what();
-		LOGFLAGS( FL_NONE );
-		LOGC( WARNING ) << executor.GetName() << " couldn't execute " << this->_name << " because his grade is too low.";
-		return ;
-	}
-	this->MakeAction();
-	LOGC( SUCCESS ) << executor.GetName() << " executed " << this->_name;
-}
-
-void	AForm::MakeAction( void ) {}
-
-AForm	&AForm::operator=( AForm const &other ) {
+Form	&Form::operator=( Form const &other ) {
 	if ( this == &other )
 		return ( *this );
 
@@ -135,8 +115,8 @@ AForm	&AForm::operator=( AForm const &other ) {
 	return ( *this );
 }
 
-std::ostream	&operator<<( std::ostream &os, AForm const &add ) {
-	if ( AForm::showTrace ) {
+std::ostream	&operator<<( std::ostream &os, Form const &add ) {
+	if ( Form::showTrace ) {
 		LOGFLAGS( FL_ALL );
 		LOGC( DEBUG ) << "Trace";
 		LOGFLAGS( FL_NONE );
@@ -146,14 +126,10 @@ std::ostream	&operator<<( std::ostream &os, AForm const &add ) {
 	return ( os );
 }
 
-char const	*AForm::GradeTooLowException::what() const throw() {
+char const	*Form::GradeTooLowException::what() const throw() {
 	return ( "Grade is too low." );
 }
 
-char const	*AForm::GradeTooHighException::what() const throw() {
+char const		*Form::GradeTooHighException::what() const throw() {
 	return ( "Grade is too high." );
-}
-
-char const	*AForm::FormNotSignedException::what() const throw() {
-	return ( "The form has not been signed." );
 }

@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 12:20:45 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/04/22 07:13:03 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/04/29 12:47:20 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 
 class	PresidentialPardonForm : public AForm {
 	private:
-		const std::string	_target;
+		std::string	_target;
 
 		void MakeAction( void );
 
@@ -27,5 +27,6 @@ class	PresidentialPardonForm : public AForm {
 
 		~PresidentialPardonForm( void );
 
+		PresidentialPardonForm		*clone( void );
 		PresidentialPardonForm	&operator=( const PresidentialPardonForm &other );
 };
