@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/20 14:40:06 by Théo              #+#    #+#             */
-/*   Updated: 2024/11/15 06:55:22 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/05/19 13:54:51 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,16 +45,7 @@ void	HarlFilter::complain( std::string level ) const {
 			this->_display_complain(1);
 			break ;
 		case 2:
-			this->_display_complain(2);
-			break ;
-		case 3:
-			this->_display_complain(3);
-			break ;
-		default:
-			std::cout << "[ Probably complaining about insignificant problems ]" << std::endl;
-			break ;
-	}
-}
+			this->_display_complain(2);lst)( void
 
 void	HarlFilter::debug( void ) const {
 	std::cout << "[DEBUG]" << std::endl;

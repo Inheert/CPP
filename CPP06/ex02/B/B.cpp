@@ -1,27 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.hpp                                     :+:      :+:    :+:   */
+/*   B.cpp                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/17 11:25:26 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/05/19 12:41:51 by tclaereb         ###   ########.fr       */
+/*   Created: 2025/05/19 13:36:33 by tclaereb          #+#    #+#             */
+/*   Updated: 2025/05/19 15:49:45 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "B.hpp"
 
-#include "../includes/Data.hpp"
+B::B( void ) {
+	LOGC( SUCCESS ) << "B constructor.";
+}
 
-class Serializer {
-	private:
-		Serializer( void );
-		Serializer( const Serializer &other );
-		Serializer	&operator=( const Serializer &other );
-		~Serializer( void );
-
-	public:
-		static uintptr_t	serialize( Data *ptr );
-		static Data		*deserialize( uintptr_t raw );
-};
+B::~B( void ) {}

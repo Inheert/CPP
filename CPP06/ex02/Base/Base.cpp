@@ -1,27 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Serializer.hpp                                     :+:      :+:    :+:   */
+/*   Base.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/05/17 11:25:26 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/05/19 12:41:51 by tclaereb         ###   ########.fr       */
+/*   Created: 2025/05/19 13:09:33 by tclaereb          #+#    #+#             */
+/*   Updated: 2025/05/19 14:17:54 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#pragma once
+#include "Base.hpp"
 
-#include "../includes/Data.hpp"
+Base::Base( void ) {}
 
-class Serializer {
-	private:
-		Serializer( void );
-		Serializer( const Serializer &other );
-		Serializer	&operator=( const Serializer &other );
-		~Serializer( void );
-
-	public:
-		static uintptr_t	serialize( Data *ptr );
-		static Data		*deserialize( uintptr_t raw );
-};
+Base::~Base( void ) {}
