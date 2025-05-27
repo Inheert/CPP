@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 12:54:25 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/05/19 16:01:10 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/05/20 10:44:48 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@
 
 #include <cstdlib>
 #include <iostream>
-#include <functional>
 
 void	identify( Base *p ) {
 	if ( dynamic_cast< A* >( p ) )

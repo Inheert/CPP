@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 10:55:15 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/04/29 13:12:27 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/05/20 11:24:27 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,8 +23,9 @@
 int	main() {
 	Intern someRandomIntern;
 	AForm* rrf;
-	rrf = someRandomIntern.MakeForm("robotogrgmy request", "Bender");
-	std::cout << &rrf << std::endl;
-	std::cout << rrf << std::endl;
+	Bureaucrat	bur( "Bubur", 150 );
+	rrf = someRandomIntern.MakeForm("robotomy request", "Bender");
+	bur.SignForm( *rrf );
+	bur.executeForm( *rrf );
 	delete rrf;
 }

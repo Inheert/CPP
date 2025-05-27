@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 10:51:39 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/04/21 07:27:57 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/05/22 09:32:45 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,7 +77,7 @@ class Log {
 
 		void	displayDebug( enumColors color );
 
-		template <typename T>
+		template<typename T>
 		Log &operator<<( T const &msg ) {
 			os << msg;
 			return (*this);
