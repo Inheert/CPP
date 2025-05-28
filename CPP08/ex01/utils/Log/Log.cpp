@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 10:51:35 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/05/26 13:03:58 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/05/28 10:25:44 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,11 +58,30 @@ Log::Log( enumColors color, std::string file, std::string func, int line ) {
 	this->displayDebug( color );
 }
 
+Log::Log( const Log& other ) {
+	this->os.str( other.os.str() );
+	this->_file = other._file;
+	this->_func = other._func;
+	this->_line = other._line;
+	this->_color = other._color;
+}
+
+Log&	Log::operator=( const Log& other ) {
+	if ( this == &other )
+		return ( *this );
+
+	this->os.str( other.os.str() );
+	this->_file = other._file;
+	this->_func = other._func;
+	this->_line = other._line;
+	this->_color = other._color;
+	return ( *this );
+}
+
 Log::~Log() {
 	if ( !debug && this->_color == DEBUG ) {
 		return ;
 	}
-
 
 	if ( ( logData & logFile ) && ( logData & logLine ) && ( logData & logFunc ) )
 		os << " - \033[3m(" << this->_file << ":" << this->_line << " " << this->_func << ")\033[0m";

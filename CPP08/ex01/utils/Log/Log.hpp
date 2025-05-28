@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 10:51:39 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/05/26 13:02:31 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/05/28 10:19:56 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,8 +77,10 @@ class Log {
 
 		Log( std::string file, std::string func, int line );
 		Log( enumColors color, std::string file, std::string func, int line );
-
+		Log( const Log& other );
 		~Log();
+
+		Log	&operator=( const Log& other );
 
 		void	displayDebug( enumColors color );
 

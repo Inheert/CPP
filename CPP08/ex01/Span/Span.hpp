@@ -6,13 +6,19 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 10:25:53 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/05/27 13:20:41 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/05/28 14:11:19 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #pragma once
 
-#include "../includes/proto.hpp"
+#include <exception>
+#include <iostream>
+#include <algorithm>
+#include <set>
+#include <limits>
+#include "../utils/Log/Log.hpp"
+#include "../includes/GetType.hpp"
 
 class Span {
 	private:
@@ -23,12 +29,18 @@ class Span {
 		Span( void );
 		Span( const unsigned int n );
 		Span( const Span& other );
-		~Span( void )
+		~Span( void );
 
 		Span&	operator=( const Span& other );
 
-		void	addNumber( const unsigned int n );
+		void	addNumber( const int n );
+		void	addNumber( std::set< int >::iterator begin, std::set< int >::iterator end );
 
-		unsigned int	shortestSpan( void ) const;
-		unsigned int	highestSpan( void ) const;
+		int	shortestSpan( void ) const;
+		int	highestSpan( void ) const;
+
+		void	display( void ) const;
 };
+
+template<>
+struct GetTypeString< Span > { static std::string name() { return ( "Span" ); } };
