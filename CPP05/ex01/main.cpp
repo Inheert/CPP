@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 10:55:15 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/04/22 07:26:35 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/08/25 08:48:23 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,47 +24,38 @@ int	main() {
 
 	LOGC( INFO ) << "BureauCrat Minimum: " << Bureaucrat::minGrade;
 	LOGC( INFO ) << "Bureaucrat Maximum: " << Bureaucrat::maxGrade;
-	LOGC( INFO ) << "Form Minimum: " << Bureaucrat::minGrade;
-	LOGC( INFO ) << "Form Maximum: " << Bureaucrat::maxGrade  << LEND;
 
-	std::cout << "-------------------------------------------------------------" << LEND;
+	std::cout << LEND << "-------------------------------------------------------------" << LEND;
 	LOGC( INFO ) << "Getter check.";
 	std::cout << "-------------------------------------------------------------" << LEND << LEND;
 
 	Form	example( "exampleForm", 140, 2 );
 
-	Form::showTrace = true;
-	std::string	tmp = example.GetName();
-	LOGC( INFO ) << "Name: " << tmp;
-	tmp = example.GetRequiredGradeSign();
-	LOGC( INFO ) << "Required grade to sign: " << tmp;
-	tmp = example.GetRequiredGradeExecute();
-	LOGC( INFO ) << "Required grade to execute: " << tmp;
-	tmp = example.GetIsSigned();
-	LOGC( INFO ) << "Is form signed: " << tmp << LEND;
-	Form::showTrace = false;
+	LOGC( INFO ) << "Name: " << example.GetName();
+	LOGC( INFO ) << "Required grade to sign: " << example.GetRequiredGradeSign();
+	LOGC( INFO ) << "Required grade to execute: " << example.GetRequiredGradeExecute();
+	LOGC( INFO ) << "Is form signed: " << example.GetIsSigned();
 
-	std::cout << "-------------------------------------------------------------" << LEND;
-	LOGC( INFO ) << "'<<' overlad check.";
+	std::cout << LEND << "-------------------------------------------------------------" << LEND;
+	LOGC( INFO ) << "'<<' overload check.";
 	std::cout << "-------------------------------------------------------------" << LEND << LEND;
 
-	Form::showTrace = true;
 	std::ostringstream	oss;
 	oss << example;
 	LOGC( INFO ) << oss.str();
-	Form::showTrace = false;
 
-	std::cout << "-------------------------------------------------------------" << LEND;
+	std::cout << LEND << "-------------------------------------------------------------" << LEND;
 	LOGC( INFO ) << "Instancation of valid and invalid Form check.";
 	std::cout << "-------------------------------------------------------------" << LEND << LEND;
 
-	for ( int i = 0; i < 200; i++ ) {
-		void	*base = NULL;
-		unsigned int grade = ( ( unsigned long long )&base >> ( i * 8 ) ) & 0xFF;
-		grade = grade % Bureaucrat::minGrade * 2;
+	for ( int i = 0; i < 5; i++ ) {
+		unsigned int gradeToSign = rand() % Bureaucrat::minGrade * 2;
+		unsigned int gradeToExecute = rand() % Bureaucrat::minGrade * 2;
 
-		LOGC( INFO ) << "Grade: " << grade << " should work: " << ( grade > Bureaucrat::minGrade || grade < Bureaucrat::maxGrade ? "NO" : "YES" );
-		Bureaucrat	test( "name", grade );
+		bool shouldWork = ( gradeToSign > Bureaucrat::minGrade || gradeToSign < Bureaucrat::maxGrade ) && ( gradeToExecute > Bureaucrat::minGrade || gradeToExecute < Bureaucrat::maxGrade );
+
+		LOGC( INFO ) << "Grade to sign: " << gradeToSign << ", grade to execute: " << gradeToExecute << ", should work: " << ( shouldWork ? "YES" : "NO" );
+		Form	test( "FormExample", gradeToSign, gradeToExecute );
 		LOGC( INFO ) << test << LEND;
 	}
 

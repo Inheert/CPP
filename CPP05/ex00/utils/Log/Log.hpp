@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 10:51:39 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/05/22 09:32:45 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/08/11 07:18:45 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,10 +27,10 @@
 #define LOG() Log( __FILE__, __PRETTY_FUNCTION__, __LINE__ )
 #define LOGC( color ) Log( color, __FILE__, __PRETTY_FUNCTION__, __LINE__ )
 
-// Macro used to customize the Log header.
+// Macro used to customize whats details you want to see for a log (line, file, function).
 #define LOGFLAGS( flags ) { Log::logData = flags; }
 
-// These are flags used to define what we want to see in the header.
+// These are flags used to define what we want to see in the log.
 #define FL_FILE Log::logFile
 #define FL_FUNC Log::logFunc
 #define FL_LINE Log::logLine

@@ -6,8 +6,10 @@ unsigned int const Bureaucrat::maxGrade = 1;
 Bureaucrat::Bureaucrat( void ) : _name( "default" ), _grade( Bureaucrat::minGrade ) {}
 
 Bureaucrat::Bureaucrat( std::string const name, unsigned int grade ) : _name( name ) {
-	if ( !this->_SetGrade( grade ) )
+	if ( !this->_SetGrade( grade ) ) {
+		LOGC( INFO ) << "Trying to initialize a bureaucrat with an invalid grade, lowest grade will be defined.";
 		this->_SetGrade( minGrade );
+	}
 }
 
 Bureaucrat::Bureaucrat( Bureaucrat const &other ) : _name( other.GetName() ) {

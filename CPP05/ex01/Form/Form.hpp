@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 09:07:55 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/04/21 07:20:59 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/08/11 08:29:12 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,6 @@ class Form {
 
 		bool				IsGradeValid( unsigned int const grade ) const;
 	public:
-		static bool			showTrace;
 
 		Form( void );
 		Form( std::string const name, unsigned int const gradeToSign, unsigned int const gradeToExec );

@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 08:04:10 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/03/26 14:40:35 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/08/19 13:38:58 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -149,7 +149,8 @@ bool	operator!=( const Fixed &lhs, const Fixed &rhs ) {
 	return (lhs.getRawBits() != rhs.getRawBits());
 }
 
-bool	operator==( const Fixed &lhs, const Fixed &rhs ) {
+bool	operat
+( const Fixed &lhs, const Fixed &rhs ) {
 	return (lhs.getRawBits() == rhs.getRawBits());
 }
 

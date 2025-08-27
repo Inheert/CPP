@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/22 06:52:43 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/04/29 09:15:08 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/08/27 13:57:05 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ ShrubberyCreationForm	&ShrubberyCreationForm::operator=( const ShrubberyCreation
 void	ShrubberyCreationForm::MakeAction( void ) {
 	std::ofstream	outfile;
 
-	outfile.open( ( "ShrubberyCreationForm/files/" + std::string( this->_target ) + "_shrubbery" ).c_str() );
+	outfile.open( ( "ShrubberyCreationForm/" + std::string( this->_target ) + "_shrubbery" ).c_str() );
 
 	outfile << "                                                         .\n\
                                               .         ;\n\

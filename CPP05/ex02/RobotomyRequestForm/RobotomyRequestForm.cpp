@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/21 13:57:40 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/04/22 06:52:25 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/08/27 12:39:26 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	RobotomyRequestForm::MakeAction( void ) {
 
 	unsigned int	result = rand() % 10;
 
-	if ( result > 5 )
+	if ( result >= 5 )
 		LOGC( SUCCESS ) << this->_target << "have been robotomized.";
 	else if ( result < 5 )
 		LOGC( WARNING ) << "Robotomatization failed.";

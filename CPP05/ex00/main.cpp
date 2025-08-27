@@ -1,6 +1,9 @@
 #include "Bureaucrat/Bureaucrat.hpp"
 
+#include <cstdlib>
+
 int	main() {
+	srand( time( NULL ) );
 	std::cout << "-------------------------------------------------------------" << LEND;
 	LOGC( INFO ) << "Grade range check.";
 	std::cout << "-------------------------------------------------------------" << LEND << LEND;
@@ -13,12 +16,10 @@ int	main() {
 	std::cout << "-------------------------------------------------------------" << LEND << LEND;
 
 	for ( int i = 0; i < 10; i++ ) {
-		void	*base = NULL;
-		unsigned int grade = ( ( unsigned long long )&base >> ( i * 8 ) ) & 0xFF;
-		grade = grade % Bureaucrat::minGrade * 2;
+		unsigned int grade = rand() % Bureaucrat::minGrade * 2;
 
 		LOGC( INFO ) << "Grade: " << grade << " should work: " << ( grade > Bureaucrat::minGrade || grade < Bureaucrat::maxGrade ? "NO" : "YES" );
-		Bureaucrat	test( "name", grade );
+		Bureaucrat	test( "customName", grade );
 		LOGC( INFO ) << test << LEND;
 	}
 

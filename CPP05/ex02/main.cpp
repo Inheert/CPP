@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 10:55:15 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/04/22 07:51:40 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/08/27 13:18:37 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -75,5 +75,4 @@ int	main() {
 
 	PresidentialPardonForm	a( "Chenillepan" );
 	Bureaucrat	bur( "Gregory", 2 );
-
 }

@@ -6,13 +6,12 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 09:21:53 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/04/22 07:52:44 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/08/11 08:29:32 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "AForm.hpp"
 
-bool	AForm::showTrace = false;
 
 AForm::AForm( void ) : _name( "default" ), _requiredGradeSign( Bureaucrat::maxGrade ), _requiredGradeExecute( Bureaucrat::maxGrade ), _isSigned( false ) {}
 
@@ -45,42 +44,18 @@ bool	AForm::IsGradeValid( unsigned int const grade ) const {
 }
 
 std::string const	AForm::GetName( void ) const {
-	if ( showTrace ) {
-		LOGFLAGS( FL_ALL );
-		LOGC( DEBUG ) << "Trace";
-		LOGFLAGS( FL_NONE );
-	}
-
 	return ( this->_name );
 }
 
 unsigned int	AForm::GetRequiredGradeSign( void ) const {
-	if ( showTrace ) {
-		LOGFLAGS( FL_ALL );
-		LOGC( DEBUG ) << "Trace";
-		LOGFLAGS( FL_NONE );
-	}
-
 	return ( this->_requiredGradeSign );
 }
 
 unsigned int AForm::GetRequiredGradeExecute( void ) const {
-	if ( showTrace ) {
-		LOGFLAGS( FL_ALL );
-		LOGC( DEBUG ) << "Trace";
-		LOGFLAGS( FL_NONE );
-	}
-
 	return( this->_requiredGradeExecute );
 }
 
 bool	AForm::GetIsSigned( void ) const {
-	if ( showTrace ) {
-		LOGFLAGS( FL_ALL );
-		LOGC( DEBUG ) << "Trace";
-		LOGFLAGS( FL_NONE );
-	}
-
 	return ( this->_isSigned );
 }
 
@@ -136,12 +111,6 @@ AForm	&AForm::operator=( AForm const &other ) {
 }
 
 std::ostream	&operator<<( std::ostream &os, AForm const &add ) {
-	if ( AForm::showTrace ) {
-		LOGFLAGS( FL_ALL );
-		LOGC( DEBUG ) << "Trace";
-		LOGFLAGS( FL_NONE );
-	}
-
 	os << add.GetName() << ", form lowest grade to sign " << add.GetRequiredGradeSign() << ", lowest grade to execute " << add.GetRequiredGradeExecute() << ", is signed: " << add.GetIsSigned() << ".";
 	return ( os );
 }

@@ -7,6 +7,7 @@ int main(int argc, char** argv) {
 	}
 
 	std::string	tmp = argv[ 1 ];
+
 	ScalarConverter::convert(tmp);
 	return 0;
 }

@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/04/18 09:07:55 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/04/21 13:34:57 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/08/11 08:29:35 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,6 @@ class AForm {
 		virtual void		MakeAction( void );
 
 	public:
-		static bool			showTrace;
-
 		AForm( void );
 		AForm( std::string const name, unsigned int const gradeToSign, unsigned int const gradeToExec );
 		AForm( AForm const &other );
