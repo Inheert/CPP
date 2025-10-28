@@ -6,18 +6,18 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 11:25:38 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/10/28 07:54:58 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/10/28 10:26:09 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ScalarConverter.hpp"
 
 static bool isFloatPseudoLiteral( const std::string& s ) {
-	return ( s == "-inff" || s == "+inff" || s == "nanf" );
+	return ( s == "-inff" || s == "+inff" || s == "nanf" || s == "inff" );
 }
 
 static bool isDoublePseudoLiteral( const std::string& s ) {
-	return ( s == "-inf" || s == "+inf" || s == "nan" );
+	return ( s == "-inf" || s == "+inf" || s == "nan" || s == "inf" );
 }
 
 static bool isValidLiteral( const std::string &s ) {
@@ -68,16 +68,37 @@ static void displayInt( const int i, bool isValid ) {
 
 static void displayFloat( const float f, bool isValid ) {
 	if ( !isValid )
-		LOGC( CRITICAL ) << "float: Impossible";
+		LOGC( CRITICAL ) << "float: " << ( f < 0 ? "-inff" : "inff" );
 	else
 		LOGC( INFO ) << "float: " << std::fixed << std::setprecision( 5 ) << f << "f";
 }
 
 static void displayDouble( const double d, bool isValid ) {
 	if ( !isValid )
-		LOGC( CRITICAL ) << "double: Impossible";
+		LOGC( CRITICAL ) << "float: " << ( d < 0 ? "-inf" : "inf" );
 	else
 		LOGC( INFO ) << "double: " << std::fixed << std::setprecision( 5 ) << d;
+}
+
+static bool doesItOverflow( const std::string& s, const std::string type ) {
+	std::stringstream	ss;
+	ss << s;
+
+	if ( type == "char" ) {
+		int	c;
+		ss >> c;
+		return ( c <= 0 || c >= 127 );
+	} else if ( type == "int" ) {
+		int	i;
+		ss >> i;
+	} else if ( type == "float" ) {
+		float	f;
+		ss >> f;
+	} else if ( type == "double" ) {
+		double	d;
+		ss >> d;
+	}
+	return ( ss.fail() );
 }
 
 static void fromChar( const std::string& s ) {
@@ -96,10 +117,10 @@ static void fromInt( const std::string& s ) {
 	ss << s;
 	ss >> i;
 
-	displayChar( static_cast< char >( i ), ( i >= 0 && i <= 127 ) );
-	displayInt( i, true );
-	displayFloat( static_cast< float >( i ), true );
-	displayDouble( static_cast< double >( i ), true );
+	displayChar( static_cast< char >( i ), !ss.fail() && !doesItOverflow( s, "char" ) );
+	displayInt( i, !ss.fail() );
+	displayFloat( static_cast< float >( i ), !ss.fail() );
+	displayDouble( static_cast< double >( i ), !ss.fail() );
 }
 
 static void fromFloat( const std::string& s ) {
@@ -109,7 +130,7 @@ static void fromFloat( const std::string& s ) {
 	if ( isFloatPseudoLiteral( s ) ) {
 		if ( s == "nanf" )
 			f = std::numeric_limits< float >::quiet_NaN();
-		else if ( s == "+inff" )
+		else if ( s == "+inff" || s == "inff" )
 			f = std::numeric_limits< float >::infinity();
 		else
 			f = -std::numeric_limits< float >::infinity();
@@ -118,10 +139,17 @@ static void fromFloat( const std::string& s ) {
 		ss >> f;
 	}
 
-	displayChar( static_cast< char >( f ), ( !isnan( f ) && f >= 0 && f <= 127 ) );
-	displayInt( static_cast< int >( f ), ( !isnan( f ) && f > std::numeric_limits< int >::min() && f < std::numeric_limits< int >::max() ) );
-	displayFloat( f, true );
-	displayDouble( static_cast< double >( f ), true );
+	if ( isFloatPseudoLiteral( s ) ) {
+		displayChar( static_cast< char >( f ), false );
+		displayInt( static_cast< int >( f ), false );
+		displayFloat( static_cast< double >( f ), true );
+		displayDouble( static_cast< double >( f ), true );
+	} else {
+		displayChar( static_cast< char >( f ), !ss.fail() && !doesItOverflow( s, "char" ) );
+		displayInt( static_cast< int >( f ), !ss.fail() && doesItOverflow( s, "int" ) );
+		displayFloat( static_cast< double >( f ), !ss.fail() );
+		displayDouble( static_cast< double >( f ), !ss.fail() );
+	}
 }
 
 static void fromDouble( const std::string& s ) {
@@ -131,7 +159,7 @@ static void fromDouble( const std::string& s ) {
 	if ( isDoublePseudoLiteral( s ) ) {
 		if ( s == "nan" )
 			d = std::numeric_limits< double >::quiet_NaN();
-		else if ( s == "+inf" )
+		else if ( s == "+inf" || s == "inf" )
 			d = std::numeric_limits< double >::infinity();
 		else
 			d = -std::numeric_limits< double >::infinity();
@@ -140,13 +168,16 @@ static void fromDouble( const std::string& s ) {
 		ss >> d;
 	}
 
-	displayChar( static_cast< char >( d ), ( !isnan( d ) && d >= 0 && d <= 127 ) );
-	displayInt( static_cast< int >( d ), ( !isnan( d ) && d > std::numeric_limits< int >::min() && d < std::numeric_limits< int >::max() ) );
-	if ( isDoublePseudoLiteral( s ) )
+	if ( isDoublePseudoLiteral( s ) ) {
+		displayChar( static_cast< char >( d ), false );
+		displayInt( static_cast< int >( d ), false );
 		displayFloat( static_cast< double >( d ), true );
-	else
-		displayFloat( static_cast< double >( d ), ( d > std::numeric_limits< float >::min() && d < std::numeric_limits< float >::max() ) );
-	displayDouble( d, true );
+	} else {
+		displayChar( static_cast< char >( d ), !ss.fail() && !doesItOverflow( s, "char" ) );
+		displayInt( static_cast< int >( d ), !ss.fail() && !doesItOverflow( s, "int" ) );
+		displayFloat( static_cast< double >( d ), !ss.fail() && !doesItOverflow( s, "float" ) );
+	}
+	displayDouble( d, !ss.fail() );
 }
 
 void ScalarConverter::convert( std::string literal ) {

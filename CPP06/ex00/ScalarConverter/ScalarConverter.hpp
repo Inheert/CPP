@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 09:30:13 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/10/28 03:51:16 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/10/28 09:01:27 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,7 @@
 
 class ScalarConverter {
 	private:
-		ScalarConverter( void );
-		ScalarConverter( const ScalarConverter &other );
-		ScalarConverter	&operator=( const ScalarConverter &other );
-		~ScalarConverter( void );
+		ScalarConverter();
 
 	public:
 		static void convert( std::string rep );
