@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 12:54:25 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/05/20 10:44:48 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/10/28 07:54:01 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,19 +31,19 @@ void	identify( Base *p ) {
 void	identify( Base &r ) {
 	try {
 		( void )dynamic_cast< A& >( r );
-		LOGC( DEBUG ) << "This ptr is pointing a A class.";
+		LOGC( DEBUG ) << "This ref is a A class.";
 	}
 	catch ( std::exception &e ) {}
 
 	try {
 		( void )dynamic_cast< B& >( r );
-		LOGC( DEBUG ) << "This ptr is pointing a B class.";
+		LOGC( DEBUG ) << "This ref is a B class.";
 	}
 	catch ( std::exception &e ) {}
 
 	try {
 		( void )dynamic_cast< C& >( r );
-		LOGC( DEBUG ) << "This ptr is pointing a C class.";
+		LOGC( DEBUG ) << "This ref a C class.";
 	}
 	catch ( std::exception &e ) {}
 }

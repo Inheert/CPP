@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 11:25:26 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/05/19 12:41:51 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/10/28 07:31:06 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,5 +23,5 @@ class Serializer {
 
 	public:
 		static uintptr_t	serialize( Data *ptr );
-		static Data		*deserialize( uintptr_t raw );
+		static Data			*deserialize( uintptr_t raw );
 };

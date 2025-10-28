@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 09:30:13 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/05/17 09:58:34 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/10/28 03:51:16 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,5 +34,3 @@ class ScalarConverter {
 	public:
 		static void convert( std::string rep );
 };
-
-

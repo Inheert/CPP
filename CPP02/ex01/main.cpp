@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/22 08:03:21 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/02/24 07:38:26 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/08/27 14:32:14 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,3 +33,4 @@ int	main( void ) {
 	oss << "d is " << d.toInt() << " as integer"; log(std::cout, oss.str(), 0); oss.str("");
 	return (0);
 }
+
