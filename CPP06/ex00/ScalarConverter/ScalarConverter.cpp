@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 11:25:38 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/10/29 12:48:52 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/10/29 12:55:45 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -147,7 +147,7 @@ static void fromFloat( const std::string& s ) {
 		displayDouble( static_cast< double >( f ), true );
 	} else {
 		displayChar( static_cast< char >( f ), !ss.fail() && !doesItOverflow( s, "char" ) );
-		displayInt( static_cast< int >( f ), !ss.fail() && doesItOverflow( s, "int" ) );
+		displayInt( static_cast< int >( f ), !ss.fail() && !doesItOverflow( s, "int" ) );
 		displayFloat( static_cast< double >( f ), !ss.fail() );
 		displayDouble( static_cast< double >( f ), !ss.fail() );
 	}
