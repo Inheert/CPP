@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/17 11:25:38 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/10/28 10:26:09 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/10/29 12:48:52 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,14 +68,14 @@ static void displayInt( const int i, bool isValid ) {
 
 static void displayFloat( const float f, bool isValid ) {
 	if ( !isValid )
-		LOGC( CRITICAL ) << "float: " << ( f < 0 ? "-inff" : "inff" );
+		LOGC( CRITICAL ) << "float: Impossible";
 	else
 		LOGC( INFO ) << "float: " << std::fixed << std::setprecision( 5 ) << f << "f";
 }
 
 static void displayDouble( const double d, bool isValid ) {
 	if ( !isValid )
-		LOGC( CRITICAL ) << "float: " << ( d < 0 ? "-inf" : "inf" );
+		LOGC( CRITICAL ) << "float: Impossible";
 	else
 		LOGC( INFO ) << "double: " << std::fixed << std::setprecision( 5 ) << d;
 }
@@ -121,6 +121,7 @@ static void fromInt( const std::string& s ) {
 	displayInt( i, !ss.fail() );
 	displayFloat( static_cast< float >( i ), !ss.fail() );
 	displayDouble( static_cast< double >( i ), !ss.fail() );
+
 }
 
 static void fromFloat( const std::string& s ) {

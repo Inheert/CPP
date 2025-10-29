@@ -6,7 +6,6 @@ int main(int argc, char** argv) {
 		return 1;
 	}
 
-	LOGFLAGS( FL_FUNC | FL_LINE );
 	std::string	tmp = argv[ 1 ];
 
 	ScalarConverter::convert(tmp);
