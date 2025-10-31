@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 12:02:31 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/05/27 08:19:51 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/10/31 09:18:54 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,7 @@ struct GetTypeString {
 	static std::string name() { return ( "unknown" ); }
 };
 
+template<> struct GetTypeString< std::string > { static std::string name() { return ( "string" ); } };
 
 template<> struct GetTypeString< char > { static std::string name() { return ( "char" ); } };
 template<> struct GetTypeString< unsigned char > { static std::string name() { return ( "unsigned char" ); } };

@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 11:40:49 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/05/22 09:32:45 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/10/30 09:25:06 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include "../utils/Log/Log.hpp"
 
 template< typename T >
-void	iter( T *array, size_t length, void ( *f )( T & ) ) {
+void	iter( T *array, const size_t length, void ( *f )( T & ) ) {
 	if ( !array || !f )
 		return ;
 
@@ -25,7 +25,7 @@ void	iter( T *array, size_t length, void ( *f )( T & ) ) {
 }
 
 template< typename T >
-void	iter( T *array, size_t length, void ( *f )( const T & ) ) {
+void	iter( T *array, const size_t length, void ( *f )( const T & ) ) {
 	if ( !array || !f )
 		return ;
 
@@ -35,7 +35,7 @@ void	iter( T *array, size_t length, void ( *f )( const T & ) ) {
 }
 
 template< typename T >
-void	display( T *array, size_t length, const std::string &desc ) {
+void	display( T *array, const size_t length, const std::string &desc ) {
 	if ( !array )
 		return ;
 

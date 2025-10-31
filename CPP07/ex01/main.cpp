@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/20 11:40:43 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/05/21 15:05:08 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/10/30 09:29:45 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,11 +32,10 @@ void	powerOfFive( int &n ) {
 	n = tmp;
 }
 
-void	arrayValueSwap( int *arr ) {
-	int	tmp = arr[ 0 ];
-	arr[ 0 ] = arr[ 1 ];
-	arr[ 1 ] = tmp;
+void	printElement( const char &str ) {
+	std::cout << str << ", ";
 }
+
 
 void	charArrayCheck( void ) {
 	std::cout << "-------------------------------------------------------------" << LEND;
@@ -48,9 +47,11 @@ void	charArrayCheck( void ) {
 
 	display( arr, len, "Array: " );
 	iter( arr, len, toUpper );
-	display( arr, len, "Array after iter: " );
+	display( arr, len, "Array after iter (to upper applied): " );
 	iter( arr, len, toLower );
-	display( arr, len, "Array after iter again: " );
+	display( arr, len, "Array after iter again (to lower applied): " );
+	LOGC( DEBUG ) << "iter using a const value as func arg:";
+	iter( arr, len, printElement );
 }
 
 void	intArrayCheck( void ) {
@@ -63,7 +64,7 @@ void	intArrayCheck( void ) {
 
 	display( arr, len, "Array: " );
 	iter( arr, len, powerOfFive );
-	display( arr, len, "Array after iter: " );
+	display( arr, len, "Array after iter (power of 5 applied): " );
 }
 
 int	main( void ) {

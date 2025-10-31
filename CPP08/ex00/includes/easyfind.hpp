@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 08:51:08 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/05/27 09:33:23 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/10/31 09:20:58 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,5 +21,6 @@ int	easyfind( const T& container, const int n ) {
 
 	if ( iter == container.end() )
 		return ( -1 );
+
 	return ( std::distance( container.begin(), iter ) );
 }

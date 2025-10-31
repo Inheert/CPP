@@ -6,11 +6,26 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 09:29:07 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/05/27 08:38:14 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/10/30 10:23:39 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Array.hpp"
+
+template< class T >
+struct is_pointer { static const bool value = false; };
+
+template< class T >
+struct is_pointer< T* > { static const bool value = true; };
+
+template< class T >
+struct is_pointer< T* const > { static const bool value = true; };
+
+template< class T >
+struct is_pointer< T* volatile > { static const bool value = true; };
+
+template< class T >
+struct is_pointer< T* const volatile > { static const bool value = true; };
 
 template< typename T >
 Array< T >::Array( void ) : _arr( NULL ), _size( 0 ) {
@@ -20,6 +35,9 @@ Array< T >::Array( void ) : _arr( NULL ), _size( 0 ) {
 template< typename T >
 Array< T >::Array( unsigned int n ) : _arr( new T[ n ] ), _size( n ) {
 	LOGC( DEBUG ) << "Array constructor called for type " << GetTypeString< T >::name() << ", size: " << n;
+
+	if ( !is_pointer< T >::value )
+		return ;
 
 	for ( size_t i = 0; i < n; i++ ) {
 		this->_arr[ i ] = 0;
@@ -74,10 +92,12 @@ T	&Array< T >::operator[]( size_t n ) {
 }
 
 template< typename T >
-size_t	Array< T >::size( void ) { return ( this->_size ); }
+size_t	Array< T >::size( void ) const {
+	return ( this->_size );
+}
 
 template< typename T >
-void	Array< T >::display( void ) {
+void	Array< T >::display( void ) const {
 	std::stringstream	ss;
 
 	for ( size_t i = 0; i < this->_size; i++ ) {

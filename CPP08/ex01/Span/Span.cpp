@@ -6,23 +6,17 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 10:25:51 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/05/28 14:56:52 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/10/31 09:26:32 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
 
-Span::Span( void ) : _size( 0 ) {
+Span::Span( void ) : _size( 0 ) {}
 
-}
+Span::Span( const unsigned int n ) :  _size( n ) {}
 
-Span::Span( const unsigned int n ) :  _size( n ) {
-
-}
-
-Span::~Span( void ) {
-
-}
+Span::~Span( void ) {}
 
 Span::Span( const Span& other ) {
 	this->_container = other._container;

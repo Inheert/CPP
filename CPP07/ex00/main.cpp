@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/19 16:38:41 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/05/20 11:30:47 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/10/30 09:12:08 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,6 @@
 #include <iostream>
 
 int	main( void ) {
-	LOGFLAGS( FL_NONE );
-
 	std::cout << "-------------------------------------------------------------" << LEND;
 	LOGC( INFO ) << "SWAP CHECK.";
 	std::cout << "-------------------------------------------------------------" << LEND << LEND;
@@ -51,7 +49,7 @@ int	main( void ) {
 		int	m = rand();
 		int	minus = min( n, m );
 		int	maximum = max( n, m );
-		LOGC( INFO ) << "First int: " << n << " (" << &n << "), second int: " << m << "(" << &m << ")";
+		LOGC( INFO ) << "First int: " << n << " second int: " << m << "";
 		LOGC( DEBUG ) << "Minimum: " << minus << ", maximum: " << maximum << ".";
 	}
 
@@ -64,7 +62,7 @@ int	main( void ) {
 		float	m = ( float )rand() / ( float )rand();
 		float	minus = min( n, m );
 		float	maximum = max( n, m );
-		LOGC( INFO ) << "First int: " << n << " (" << &n << "), second int: " << m << "(" << &m << ")";
+		LOGC( INFO ) << "First int: " << n << ", second int: " << m << ".";
 		LOGC( DEBUG ) << "Minimum: " << minus << ", maximum: " << maximum << ".";
 	}
 }

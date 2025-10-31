@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 09:29:09 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/05/27 08:36:57 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/10/30 10:23:26 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,8 +33,8 @@ class	Array {
 		Array	&operator=( const Array &other );
 		T		&operator[]( size_t n );
 
-		size_t	size( void );
-		void	display( void );
+		size_t	size( void ) const;
+		void	display( void ) const;
 };
 
 template< typename T >

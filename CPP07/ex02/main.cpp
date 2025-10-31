@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/22 09:21:40 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/05/27 08:39:56 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/10/30 10:26:17 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	EmptyArrayCheck( void ) {
 	Array< int >	a( rand() % 20 );
 	Array< char >	b( rand() % 20 );
 	Array< char* >	c( rand() % 20 );
-	Array< Array< float > > d( rand() % 20 );
+	Array< Array< float > > d( 2 );
 }
 
 void	FilledArrayCheck( void ) {
