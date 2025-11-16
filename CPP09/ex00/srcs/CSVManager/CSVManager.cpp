@@ -1,26 +1,13 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   CSVManager.cpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/16 19:15:14 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/11/16 19:30:44 by tclaereb         ###   ########.fr       */
+/*   Created: 2025/11/16 19:21:49 by tclaereb          #+#    #+#             */
+/*   Updated: 2025/11/16 19:26:09 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "proto.hpp"
-
-int	main( void ) {
-	std::vector< std::vector< std::string > > data = readCSV( "data.csv", ',' );
-
-	for ( std::vector< std::vector< std::string > >::iterator it = data.begin(); it != data.end(); it++ ) {
-		for ( std::vector< std::string >::iterator itt = ( *it ).begin(); itt != ( *it ).end(); itt++ ) {
-			std::cout << *itt << " ";
-		}
-		std::cout << "\n";
-		break ;
-	}
-}
-
+#include "CSVManager.hpp"

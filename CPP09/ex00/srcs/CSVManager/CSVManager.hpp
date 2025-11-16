@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   CSVManager.hpp                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/16 19:15:14 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/11/16 19:30:44 by tclaereb         ###   ########.fr       */
+/*   Created: 2025/11/16 19:21:51 by tclaereb          #+#    #+#             */
+/*   Updated: 2025/11/16 19:24:36 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "proto.hpp"
+#pragma once
 
-int	main( void ) {
-	std::vector< std::vector< std::string > > data = readCSV( "data.csv", ',' );
+class CSVManager {
+	private:
 
-	for ( std::vector< std::vector< std::string > >::iterator it = data.begin(); it != data.end(); it++ ) {
-		for ( std::vector< std::string >::iterator itt = ( *it ).begin(); itt != ( *it ).end(); itt++ ) {
-			std::cout << *itt << " ";
-		}
-		std::cout << "\n";
-		break ;
-	}
-}
+	public:
+		CSVManager( void )
+		CSVManager( std::string &filename );
+		CSVManager( const CSVManager &other );
+		CSVManager	&operator=( const CSVManager &other );
+		~CSVManager( void );
 
+		
+};

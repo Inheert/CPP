@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   proto.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/16 19:15:14 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/11/16 19:30:44 by tclaereb         ###   ########.fr       */
+/*   Created: 2025/11/16 19:09:14 by tclaereb          #+#    #+#             */
+/*   Updated: 2025/11/16 19:30:15 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "proto.hpp"
+#pragma once
 
-int	main( void ) {
-	std::vector< std::vector< std::string > > data = readCSV( "data.csv", ',' );
+#include <iostream>
+#include <sstream>
+#include <fstream>
+#include <string>
+#include <vector>
+#include <exception>
 
-	for ( std::vector< std::vector< std::string > >::iterator it = data.begin(); it != data.end(); it++ ) {
-		for ( std::vector< std::string >::iterator itt = ( *it ).begin(); itt != ( *it ).end(); itt++ ) {
-			std::cout << *itt << " ";
-		}
-		std::cout << "\n";
-		break ;
-	}
-}
+#include "../utils/Log/Log.hpp"
 
+std::vector< std::vector< std::string > > readCSV( const std::string &filename, const char &c );
