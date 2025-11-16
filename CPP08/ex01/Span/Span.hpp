@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 10:25:53 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/05/28 14:11:19 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/11/15 15:29:42 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 class Span {
 	private:
-		std::set< int >	_container;
+		std::multiset< int >	_container;
 		unsigned int	_size;
 
 	public:

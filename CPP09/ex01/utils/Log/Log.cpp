@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 10:51:35 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/11/13 12:39:25 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/05/28 10:25:44 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,6 @@ Log::~Log() {
 	if ( !debug && this->_color == DEBUG ) {
 		return ;
 	}
-
 
 	if ( ( logData & logFile ) && ( logData & logLine ) && ( logData & logFunc ) )
 		os << " - \033[3m(" << this->_file << ":" << this->_line << " " << this->_func << ")\033[0m";

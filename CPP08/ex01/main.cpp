@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 10:25:26 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/10/31 09:38:34 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/11/15 16:20:53 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,6 @@ static void	AddNumberCheck( void ) {
 	a.addNumber( rand() % 100 );
 	a.addNumber( rand() % 100 );
 
-	LOG() << a.shortestSpan();
-	LOG() << a.highestSpan();
 	a.display();
 }
 
@@ -59,7 +57,7 @@ static void	AddNumbersCheck( void ) {
 
 static void	AddTooManyNumbers( void ) {
 	std::cout << LEND << "-------------------------------------------------------------" << LEND;
-	LOGC( INFO ) << "CHECK SPAN EXCEPTION WHEN ADDING TO MANY NUMBERS";
+	LOGC( INFO ) << "CHECK SPAN EXCEPTION WHEN ADDING TOO MANY NUMBERS";
 	std::cout << "-------------------------------------------------------------" << LEND << LEND;
 
 	try {

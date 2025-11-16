@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 10:25:51 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/10/31 09:26:32 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/11/13 12:52:17 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,13 @@ int	Span::highestSpan( void ) const {
 void	Span::display( void ) const {
 	Log	log = LOGC( INFO );
 	log << "SPAN INFO" << LEND;
-	log << "Size: " << this->_container.size() << ", max size: " << this->_size << LEND;
-	log << "Shortest span: " << this->shortestSpan() << ", Highest span: " << this->highestSpan() << LEND;
-	log << "Data:" << LEND;
+	log << "Data set: ";
 
 	for ( std::set< int >::const_iterator iter = this->_container.begin(); iter != this->_container.end(); iter++ ) {
-		log << *iter << ", ";
+		log << *iter << " ";
 	}
+	log << LEND;
+
+	log << "Size: " << this->_container.size() << ", max size: " << this->_size << LEND;
+	log << "Shortest span: " << this->shortestSpan() << ", Highest span: " << this->highestSpan() << LEND;
 }

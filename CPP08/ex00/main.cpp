@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/27 08:41:16 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/10/31 09:20:02 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/11/13 12:35:50 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ int	main( void ) {
 	vec.push_back( 1 );
 	vec.push_back( 4 );
 
+	displayContainer( vec );
 	CheckIndex( easyfind( vec, 4 ), 4 );
 	CheckIndex( easyfind( vec, 1 ), 1 );
 	CheckIndex( easyfind( vec, 40 ), 40 );
@@ -49,6 +50,7 @@ int	main( void ) {
 	deq.push_front( 1 );
 	deq.push_back( 51 );
 
+	displayContainer( deq );
 	CheckIndex( easyfind( deq, 1 ), 1 );
 	CheckIndex( easyfind( deq, 145 ), 145 );
 	CheckIndex( easyfind( deq, 88 ), 88 );
@@ -59,14 +61,15 @@ int	main( void ) {
 
 	std::list< int > lst;
 
-	deq.push_back( 71 );
-	deq.push_back( 782 );
-	deq.push_back( 368 );
-	deq.push_back( 12 );
-	deq.push_front( 782 );
-	deq.push_back( 1 );
+	lst.push_back( 71 );
+	lst.push_back( 782 );
+	lst.push_back( 368 );
+	lst.push_back( 12 );
+	lst.push_front( 782 );
+	lst.push_back( 1 );
 
-	CheckIndex( easyfind( deq, 782 ), 782 );
-	CheckIndex( easyfind( deq, 12 ), 12 );
-	CheckIndex( easyfind( deq, 111 ), 111 );
+	displayContainer( lst );
+	CheckIndex( easyfind( lst, 782 ), 782 );
+	CheckIndex( easyfind( lst, 12 ), 12 );
+	CheckIndex( easyfind( lst, 111 ), 111 );
 }
