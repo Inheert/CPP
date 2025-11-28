@@ -6,21 +6,23 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 19:15:14 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/11/16 19:30:44 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/11/28 14:31:53 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "proto.hpp"
 
-int	main( void ) {
-	std::vector< std::vector< std::string > > data = readCSV( "data.csv", ',' );
+int	main( int argc, char **argv ) {
+	if ( argc <= 1 )
+		return ( 1 );
+	(void  )argv;
+	// BitcoinExchange	csv( "data.csv" );
+	BitcoinExchange	input;
 
-	for ( std::vector< std::vector< std::string > >::iterator it = data.begin(); it != data.end(); it++ ) {
-		for ( std::vector< std::string >::iterator itt = ( *it ).begin(); itt != ( *it ).end(); itt++ ) {
-			std::cout << *itt << " ";
-		}
-		std::cout << "\n";
-		break ;
-	}
+	// std::map< std::string, int > data = input.getData();
+	// // std::string::find_first_not_of(  )
+	// for ( std::map< std::string, int >::iterator it = data.begin(); it != data.end(); it++ ) {
+	// 	LOGC( INFO ) << it->first << ", " << it->second;
+	// }
 }
 

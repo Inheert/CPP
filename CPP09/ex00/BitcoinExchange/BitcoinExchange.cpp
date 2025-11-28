@@ -1,23 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   CSVManager.cpp                                     :+:      :+:    :+:   */
+/*   BitcoinExchange.cpp                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/16 19:21:49 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/11/27 17:24:52 by tclaereb         ###   ########.fr       */
+/*   Created: 2025/11/27 17:32:35 by tclaereb          #+#    #+#             */
+/*   Updated: 2025/11/28 14:31:06 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "CSVManager.hpp"
+#include "BitcoinExchange.hpp"
 
-CSVManager::CSVManager( void ) {}
-
-CSVManager::CSVManager( const CSVManager &other ) : data( other.data ) {}
-
-CSVManager::CSVManager( const std::string &filename, const char sep ) {
-	std::ifstream	file( filename.c_str() );
+BitcoinExchange::BitcoinExchange() {
+	std::ifstream	file( "data.csv" );
 
 	if ( !file.is_open() ) {
 		// RAISE ERROR
@@ -37,21 +33,13 @@ CSVManager::CSVManager( const std::string &filename, const char sep ) {
 		std::string					date;
 		int							lineValueCount = 0;
 
-		while ( std::getline( ss, cell, sep ) ) {
-			if ( lineValueCount == 2 ) {
-				// RAISE ERROR
-			}
+		while ( std::getline( ss, cell, ',' ) ) {
 			if ( lineValueCount == 0 ) {
 				date = cell;
-				date.fni
 			} else {
 				int	price = atoi( cell.c_str() );
-
-				if ( price < 0 ) {
-					// RAISE ERROR
-					continue ;
-				}
 				this->data[ date ] = price;
+				LOGC( INFO ) << date << ", " << this->data[ date ];
 			}
 			lineValueCount++;
 		}
@@ -59,14 +47,16 @@ CSVManager::CSVManager( const std::string &filename, const char sep ) {
 	file.close();
 }
 
-CSVManager	&CSVManager::operator=( const CSVManager &other ) {
+BitcoinExchange::BitcoinExchange( const BitcoinExchange &other ) {
 	this->data = other.data;
+}
 
+BitcoinExchange	&BitcoinExchange::operator=( const BitcoinExchange &other ) {
+	if ( this == &other )
+		return ( *this );
+
+	this->data = other.data;
 	return ( *this );
 }
 
-CSVManager::~CSVManager( void ) {}
-
-std::map< std::string, int >	CSVManager::getData( void ) {
-	return ( this->data );
-}
+BitcoinExchange::~BitcoinExchange( void ) {}
