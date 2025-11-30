@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/27 10:51:35 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/05/28 10:25:44 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/11/30 19:09:33 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -102,7 +102,11 @@ Log::~Log() {
 
 	os << colors[ DEFAULT ];
 
-	std::cout << os.str();
+	if ( this->_color == CRITICAL ) {
+		std::cerr << os.str();
+	} else {
+		std::cout << os.str();
+	}
 }
 
 void	Log::displayDebug( enumColors color ) {

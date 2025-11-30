@@ -6,11 +6,11 @@
 #    By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/02/24 09:08:23 by tclaereb          #+#    #+#              #
-#    Updated: 2025/11/13 15:31:35 by tclaereb         ###   ########.fr        #
+#    Updated: 2025/11/30 19:48:52 by tclaereb         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = a.out
+NAME = RPN
 
 CXX = c++
 
@@ -21,7 +21,7 @@ INCLUDES = -I ./includes/
 SRC_DIR = .
 BIN_DIR = ./bin
 
-SOURCES = main.cpp utils/Log/Log.cpp
+SOURCES = main.cpp utils/Log/Log.cpp RPN.class/RPN.cpp
 
 OBJECTS = $(addprefix $(BIN_DIR)/,$(SOURCES:.cpp=.o))
 

@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 19:21:49 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/11/27 17:24:52 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/11/29 16:24:31 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,6 @@ CSVManager::CSVManager( const std::string &filename, const char sep ) {
 			}
 			if ( lineValueCount == 0 ) {
 				date = cell;
-				date.fni
 			} else {
 				int	price = atoi( cell.c_str() );
 

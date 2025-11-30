@@ -1,27 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   proto.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/11/30 19:10:44 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/11/30 20:04:22 by tclaereb         ###   ########.fr       */
+/*   Created: 2025/11/30 19:11:07 by tclaereb          #+#    #+#             */
+/*   Updated: 2025/11/30 19:49:11 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "proto.hpp"
+#pragma once
 
-int	main( int argc, char **argv ) {
-	if ( argc < 2 ) {
-		LOGC( CRITICAL ) << "Error: need 1 argument.";
-	}
-
-	try {
-		std::cout << RPN().execute( argv[ 1 ] ) << LEND;
-	} catch ( std::exception &e ) {
-		std::cout << "\033[0;31m" << e.what() << LEND;
-		return ( 1 );
-	}
-}
-
+#include "../utils/Log/Log.hpp"
+#include "../RPN.class/RPN.hpp"
