@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 15:22:09 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/12/03 11:24:39 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/12/04 13:00:32 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -114,20 +114,21 @@ std::vector< size_t > PmergeMe::insertList( size_t pendSize ) {
 }
 
 std::vector< int > PmergeMe::mergeVector( const std::vector< int > &vec ) {
-	size_t limit = vec.size();
-	if ( limit <= 1 )
-		return ( vec );
+	size_t n = vec.size();
+	if (n <= 1) {
+		return vec;
+	}
 
 	bool hasAlone = false;
 	int alone = 0;
+	size_t limit = (n / 2) * 2;
 
-	if ( limit % 2 != 0 ) {
+	if ( n % 2 != 0 ) {
 		hasAlone = true;
-		alone = vec[ limit - 1 ];
+		alone = vec[ n - 1 ];
 	}
 
 	std::vector< std::pair< int, int > > pairs;
-	pairs.reserve( limit * 0.5 );
 	for ( size_t i = 0; i < limit; i += 2 ) {
 		int a = vec[ i ];
 		int b = vec[ i + 1 ];
@@ -137,7 +138,6 @@ std::vector< int > PmergeMe::mergeVector( const std::vector< int > &vec ) {
 	}
 
 	std::vector< int > sortedMains;
-	sortedMains.reserve( pairs.size() + ( hasAlone ? 1 : 0 ) );
 
 	for ( size_t i = 0; i < pairs.size(); ++i )
 		sortedMains.push_back( pairs[ i ].second );
@@ -145,9 +145,18 @@ std::vector< int > PmergeMe::mergeVector( const std::vector< int > &vec ) {
 	sortedMains = mergeVector( sortedMains );
 
 	std::vector< int > pendMains;
-	pendMains.reserve( pairs.size() );
 	for ( size_t i = 0; i < pairs.size(); ++i )
 		pendMains.push_back( pairs[ i ].first );
+
+	std::cout << "Main: ";
+	for ( size_t i = 0; i < sortedMains.size(); i++ ) {
+		std::cout << sortedMains[ i ] << ", ";
+	}
+	std::cout << LEND << "Pend: ";
+	for ( size_t i = 0; i < pendMains.size(); i++ ) {
+		std::cout << pendMains[ i ] << ", ";
+	}
+	std::cout << LEND << LEND;
 
 	std::vector< size_t > order = insertVector( pendMains.size() );
 

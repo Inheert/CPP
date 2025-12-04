@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 15:22:04 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/12/03 11:17:01 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/12/04 12:36:58 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,18 @@
 #include <cstdlib>
 #include <cmath>
 #include <algorithm>
+#include "../utils/Log/Log.hpp"
 
 class PmergeMe {
 	private:
-		std::vector< int >	_vectorData;
-		std::list< int >	_listData;
+		std::vector< int >		_vectorData;
+		std::list< int >		_listData;
 
-		double				_elapsedVector;
-		double				_elapsedList;
+		double					_elapsedVector;
+		double					_elapsedList;
 
-		std::vector< long >	_jacobstahlVector;
-		std::list< long >	_jacobstahlList;
+		std::vector< long >		_jacobstahlVector;
+		std::list< long >		_jacobstahlList;
 
 		void					jacobstahlList( void );
 		void					jacobstahlVector( void );

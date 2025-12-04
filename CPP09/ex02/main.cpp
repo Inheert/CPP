@@ -34,9 +34,15 @@ int main (int argc, char **argv) {
 	sorter.run(_vectorData);
 	sorter.run(_listData);
 
-	std::cout << "After:";
+	std::cout << "After (vector):";
 	for (size_t i = 0; i < _vectorData.size(); ++i) {
 		std::cout << " " << _vectorData[i];
+	}
+	std::cout << std::endl;
+
+	std::cout << "After (list):";
+	for (std::list< int >::iterator i = _listData.begin(); i != _listData.end(); ++i) {
+		std::cout << " " << *i;
 	}
 	std::cout << std::endl;
 
