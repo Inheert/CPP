@@ -47,8 +47,8 @@ int main (int argc, char **argv) {
 	std::cout << std::endl;
 
 	std::cout << "Time to process a range of " << _vectorData.size() << " elements with std::vector : "
-			  << sorter.getVectorTime() << " us" << std::endl;
+			  << sorter.getElapsedTime( "vector" ) << " us" << std::endl;
 	std::cout << "Time to process a range of " << _listData.size() << " elements with std::list   : "
-			  << sorter.getListTime() << " us" << std::endl;
+			  << sorter.getElapsedTime( "list" ) << " us" << std::endl;
 	return 0;
 }

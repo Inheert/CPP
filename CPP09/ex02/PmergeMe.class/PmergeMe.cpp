@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 15:22:09 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/12/04 13:00:32 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/12/05 12:53:08 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,8 @@ PmergeMe::PmergeMe() {
 
 PmergeMe::~PmergeMe() {}
 
-PmergeMe::PmergeMe( const PmergeMe& other )
-	: _vectorData( other._vectorData ),
-	_listData( other._listData ),
-	_elapsedVector( other._elapsedVector ),
-	_elapsedList( other._elapsedList ),
-	_jacobstahlVector( other._jacobstahlVector ),
+PmergeMe::PmergeMe( const PmergeMe& other ) : _elapsedVector( other._elapsedVector ),
+	_elapsedList( other._elapsedList ), _jacobstahlVector( other._jacobstahlVector ),
 	_jacobstahlList( other._jacobstahlList )
 {}
 
@@ -34,8 +30,6 @@ PmergeMe& PmergeMe::operator=( const PmergeMe& other ) {
 	if ( this == &other )
 		return ( *this );
 
-	_vectorData = other._vectorData;
-	_listData = other._listData;
 	_elapsedVector = other._elapsedVector;
 	_elapsedList = other._elapsedList;
 	_jacobstahlVector = other._jacobstahlVector;
@@ -67,7 +61,7 @@ void PmergeMe::jacobstahlList() {
 	}
 }
 
-std::vector< size_t > PmergeMe::insertVector( size_t pendSize ) {
+std::vector< size_t > PmergeMe::insert( size_t pendSize ) {
 	std::vector< size_t > order;
 	if ( pendSize == 0 )
 		return ( order );
@@ -109,10 +103,6 @@ std::vector< size_t > PmergeMe::insertVector( size_t pendSize ) {
 	return ( order );
 }
 
-std::vector< size_t > PmergeMe::insertList( size_t pendSize ) {
-	return ( insertVector( pendSize ) );
-}
-
 std::vector< int > PmergeMe::mergeVector( const std::vector< int > &vec ) {
 	size_t n = vec.size();
 	if (n <= 1) {
@@ -137,43 +127,43 @@ std::vector< int > PmergeMe::mergeVector( const std::vector< int > &vec ) {
 		pairs.push_back( std::make_pair( a, b ) );
 	}
 
-	std::vector< int > sortedMains;
+	std::vector< int > main;
 
 	for ( size_t i = 0; i < pairs.size(); ++i )
-		sortedMains.push_back( pairs[ i ].second );
+		main.push_back( pairs[ i ].second );
 
-	sortedMains = mergeVector( sortedMains );
+	main = mergeVector( main );
 
-	std::vector< int > pendMains;
+	std::vector< int > pend;
 	for ( size_t i = 0; i < pairs.size(); ++i )
-		pendMains.push_back( pairs[ i ].first );
+		pend.push_back( pairs[ i ].first );
 
 	std::cout << "Main: ";
-	for ( size_t i = 0; i < sortedMains.size(); i++ ) {
-		std::cout << sortedMains[ i ] << ", ";
+	for ( size_t i = 0; i < main.size(); i++ ) {
+		std::cout << main[ i ] << ", ";
 	}
 	std::cout << LEND << "Pend: ";
-	for ( size_t i = 0; i < pendMains.size(); i++ ) {
-		std::cout << pendMains[ i ] << ", ";
+	for ( size_t i = 0; i < pend.size(); i++ ) {
+		std::cout << pend[ i ] << ", ";
 	}
 	std::cout << LEND << LEND;
 
-	std::vector< size_t > order = insertVector( pendMains.size() );
+	std::vector< size_t > order = insert( pend.size() );
 
 	for ( size_t idx = 0; idx < order.size(); ++idx ) {
-		if ( order[ idx ] >= pendMains.size() )
+		if ( order[ idx ] >= pend.size() )
 			continue ;
-		int valueToInsert = pendMains[ order[ idx ] ];
-		std::vector< int >::iterator it = std::lower_bound( sortedMains.begin(), sortedMains.end(), valueToInsert );
-		sortedMains.insert( it, valueToInsert );
+		int valueToInsert = pend[ order[ idx ] ];
+		std::vector< int >::iterator it = std::lower_bound( main.begin(), main.end(), valueToInsert );
+		main.insert( it, valueToInsert );
 	}
 
 	if ( hasAlone ) {
-		std::vector< int >::iterator it = std::lower_bound( sortedMains.begin(), sortedMains.end(), alone );
-		sortedMains.insert( it, alone );
+		std::vector< int >::iterator it = std::lower_bound( main.begin(), main.end(), alone );
+		main.insert( it, alone );
 	}
 
-	return ( sortedMains );
+	return ( main );
 }
 
 std::list< int > PmergeMe::mergeList( const std::list< int > &lst ) {
@@ -191,7 +181,7 @@ std::list< int > PmergeMe::mergeList( const std::list< int > &lst ) {
 	}
 
 	std::list< int > mains;
-	std::vector< int > pendMains;
+	std::list< int > pend;
 
 	std::list< int >::iterator it = work.begin();
 	while ( it != work.end() ) {
@@ -205,22 +195,26 @@ std::list< int > PmergeMe::mergeList( const std::list< int > &lst ) {
 		int a = *it1;
 		int b = *it2;
 		if ( a <= b ) {
-			pendMains.push_back( a );
+			pend.push_back( a );
 			mains.push_back( b );
 		} else {
-			pendMains.push_back( b );
+			pend.push_back( b );
 			mains.push_back( a );
 		}
 	}
 
 	mains = mergeList( mains );
 
-	std::vector< size_t > order = insertList( pendMains.size() );
+	std::vector< size_t > order = insert( pend.size() );
 
 	for ( size_t idx = 0; idx < order.size(); ++idx ) {
-		if ( order[ idx ] >= pendMains.size() )
+		if ( order[ idx ] >= pend.size() )
 			continue ;
-		int valueToInsert = pendMains[ order[ idx ] ];
+
+		std::list< int >::iterator it = pend.begin();
+		std::advance( it, order[ idx ] );
+
+		int valueToInsert = *it;
 
 		std::list< int >::iterator pos = mains.begin();
 
@@ -239,27 +233,28 @@ std::list< int > PmergeMe::mergeList( const std::list< int > &lst ) {
 	return ( mains );
 }
 
-double PmergeMe::getVectorTime() const {
-	return ( _elapsedVector );
+double	PmergeMe::getElapsedTime( const std::string &containerType ) const {
+	if ( containerType == "vector" ) {
+		return ( this->_elapsedVector );
+	} else if ( containerType == "list" ) {
+		return ( this->_elapsedList );
+	}
+	return ( -1 );
 }
+
 
 void PmergeMe::run( std::vector< int > &data ) {
 	clock_t start = clock();
-	_vectorData = mergeVector( data );
+	data = mergeVector( data );
 	clock_t end = clock();
 	_elapsedVector = ( double )( end - start ) * 1000000.0 / CLOCKS_PER_SEC;
-	data = _vectorData;
 }
 
-double PmergeMe::getListTime() const {
-	return ( _elapsedList );
-}
 
 void PmergeMe::run( std::list< int > &data ) {
 	clock_t start = clock();
-	_listData = mergeList( data );
+	data = mergeList( data );
 	clock_t end = clock();
 	_elapsedList = ( double )( end - start ) * 1000000.0 / CLOCKS_PER_SEC;
-	data = _listData;
 }
 

@@ -6,7 +6,7 @@
 /*   By: tclaereb <tclaereb@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/02 15:22:04 by tclaereb          #+#    #+#             */
-/*   Updated: 2025/12/04 12:36:58 by tclaereb         ###   ########.fr       */
+/*   Updated: 2025/12/05 12:17:53 by tclaereb         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,6 @@
 
 class PmergeMe {
 	private:
-		std::vector< int >		_vectorData;
-		std::list< int >		_listData;
-
 		double					_elapsedVector;
 		double					_elapsedList;
 
@@ -38,8 +35,7 @@ class PmergeMe {
 
 		std::vector< int >		mergeVector( const std::vector< int > &vec );
 		std::list< int >		mergeList( const std::list< int > &lst);
-		std::vector< size_t >	insertVector( size_t pendSize );
-		std::vector< size_t >	insertList( size_t pendSize );
+		std::vector< size_t >	insert( size_t pendSize );
 
 	public:
 		PmergeMe( void );
@@ -47,8 +43,7 @@ class PmergeMe {
 		PmergeMe( const PmergeMe &other );
 		PmergeMe&	operator=( const PmergeMe &other );
 
-		double		getVectorTime( void ) const;
-		double		getListTime( void ) const;
+		double		getElapsedTime( const std::string &containerType ) const;
 
 		void		run( std::vector< int > &data );
 		void		run( std::list< int > &data );
